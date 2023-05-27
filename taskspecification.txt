@@ -1,0 +1,11 @@
+I am making a 2d Minecraft clone
+
+Functionalities will be as following:
+    -player with inventory and craft menu etc
+    -typical minecraft features such as building, mining blocks
+    -day-night cycle
+    -weapons: melee, bow
+    -portals to different worlds with differnt gravity, environment in single game which can be achieved by changing instance of world class in game class
+                                                                                    (thats the reason i have gravity as variable in world class)
+    -different kinds of alive entities. Right now I have only local player class prototype but I will make different kinds alive AI entities
+    
