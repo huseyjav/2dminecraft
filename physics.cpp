@@ -3,7 +3,7 @@
 #include <iostream>
 
 using namespace std;
-CPhyiscs::CPhyiscs(int x, int y, int w, int h,CWorld* world) : x(x),y(y),w(w),h(h),world(world){
+CPhyiscs::CPhyiscs(int x, int y, int w, int h,int velocityX,CWorld* world) : x(x),y(y),w(w),h(h),velocityX(velocityX),world(world){
 
 }
 
@@ -94,13 +94,13 @@ void CPhyiscs::movewOffset(int offsetx, int offsety){
 }
 
 void CPhyiscs::moveLeft(){
-    movewOffset(-10,0);
+    movewOffset(-velocityX,0);
     //x-=10;
     //if(isValidcoordinate(x-10,y)) x-=10;
     //velocityX-=5;
 }
 void CPhyiscs::moveRight(){
-    movewOffset(10,0);
+    movewOffset(velocityX,0);
     //if(isValidcoordinate(x+10,y)) x+=10;
     //velocityX+=5;
 }

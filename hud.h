@@ -1,3 +1,4 @@
+#pragma once
 #include "player.h"
 #include "renderable.h"
 #include "SDL2/SDL.h"

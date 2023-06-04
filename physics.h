@@ -25,7 +25,7 @@ public:
     bool jumping=false;
     int timeinair; // time in air in milliseconds
     int howmanypixels = 0 ; // how far object fell from sky (used for fall damage)
-    CPhyiscs(int x, int y, int w, int h,CWorld* world);
+    CPhyiscs(int x, int y, int w, int h,int velocityX,CWorld* world);
     virtual void render(CCameraRenderer * renderer) override;
 
 

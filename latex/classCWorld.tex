@@ -1,0 +1,64 @@
+\hypertarget{classCWorld}{}\doxysection{CWorld Class Reference}
+\label{classCWorld}\index{CWorld@{CWorld}}
+
+
+Inheritance diagram for CWorld\+:
+% FIG 0
+
+
+Collaboration diagram for CWorld\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCWorld_a4500ae1520104a255c3d04e48ba9510b}\label{classCWorld_a4500ae1520104a255c3d04e48ba9510b}} 
+{\bfseries CWorld} (int w, int h)
+\item 
+\mbox{\Hypertarget{classCWorld_a789b62d2491f2052337dbf070c2aea3d}\label{classCWorld_a789b62d2491f2052337dbf070c2aea3d}} 
+void {\bfseries setplayer} (\mbox{\hyperlink{classCEntity}{CEntity}} $\ast$pl)
+\item 
+\mbox{\Hypertarget{classCWorld_ad63db787fed55e9430f85f11f91c361f}\label{classCWorld_ad63db787fed55e9430f85f11f91c361f}} 
+void {\bfseries render} (\mbox{\hyperlink{classCCameraRenderer}{CCamera\+Renderer}} $\ast$renderer) override
+\item 
+\mbox{\Hypertarget{classCWorld_a427619b2e6242084c5b831dd13776e06}\label{classCWorld_a427619b2e6242084c5b831dd13776e06}} 
+void {\bfseries update} ()
+\item 
+\mbox{\Hypertarget{classCWorld_ae3303bc9866f4cbd8f12df7cbece9dba}\label{classCWorld_ae3303bc9866f4cbd8f12df7cbece9dba}} 
+\mbox{\hyperlink{structvector2}{vector2}} {\bfseries gen\+Spawnpoint} ()
+\item 
+\mbox{\Hypertarget{classCWorld_a93dfe25d2db8b8590748f4e911167c8a}\label{classCWorld_a93dfe25d2db8b8590748f4e911167c8a}} 
+void {\bfseries handle\+Input} (\mbox{\hyperlink{classCCameraRenderer}{CCamera\+Renderer}} $\ast$camrenderer)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCWorld_af844e9e3036b2ab61105f5a056624bbb}\label{classCWorld_af844e9e3036b2ab61105f5a056624bbb}} 
+vector$<$ vector$<$ \mbox{\hyperlink{classCTile}{CTile}} $>$ $>$ {\bfseries tiles}
+\item 
+\mbox{\Hypertarget{classCWorld_a64796a969fb399b71b2e55839dcf0364}\label{classCWorld_a64796a969fb399b71b2e55839dcf0364}} 
+float {\bfseries gravity}
+\item 
+\mbox{\Hypertarget{classCWorld_a7662d81a05abf12efdc0910800761904}\label{classCWorld_a7662d81a05abf12efdc0910800761904}} 
+\mbox{\hyperlink{classCEntity}{CEntity}} $\ast$ {\bfseries player}
+\item 
+\mbox{\Hypertarget{classCWorld_ab0ea205f191cfc4bc7ee279325e6a2c3}\label{classCWorld_ab0ea205f191cfc4bc7ee279325e6a2c3}} 
+vector$<$ \mbox{\hyperlink{classCEntity}{CEntity}} $\ast$ $>$ {\bfseries worldentities}
+\item 
+\mbox{\Hypertarget{classCWorld_a6fe7ed90c5e1336a82561934e5889eb2}\label{classCWorld_a6fe7ed90c5e1336a82561934e5889eb2}} 
+bool {\bfseries lastframekleftclick} = false
+\item 
+\mbox{\Hypertarget{classCWorld_af9a8b9bb3fe45e667e1764da5bbb8d14}\label{classCWorld_af9a8b9bb3fe45e667e1764da5bbb8d14}} 
+int {\bfseries tickoflastclick} = 0
+\item 
+\mbox{\Hypertarget{classCWorld_ad564d8a66be6afca6114d96d29489e57}\label{classCWorld_ad564d8a66be6afca6114d96d29489e57}} 
+int {\bfseries lastclickedtilex} =0
+\item 
+\mbox{\Hypertarget{classCWorld_af7cf0b5219e700b5d483a411890028d2}\label{classCWorld_af7cf0b5219e700b5d483a411890028d2}} 
+int {\bfseries lastclickedtiley} =0
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+world.\+h\item 
+world.\+cpp\end{DoxyCompactItemize}

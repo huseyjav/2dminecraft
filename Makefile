@@ -3,7 +3,7 @@
 CXX := g++
 
 # Compiler flags
-CXXFLAGS := -std=c++17 -Wall -Wextra -O2
+CXXFLAGS := -std=c++17 -Wall -Wextra -O2 -g
 
 # SDL2 Libraries
 SDL_LIBS := -lSDL2 -lSDL2main

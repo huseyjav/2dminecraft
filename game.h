@@ -5,7 +5,7 @@
 #include "entity.h"
 #include "player.h"
 #include "hud.h"
-
+#include "npc.h"
 
 class CEntity;
 

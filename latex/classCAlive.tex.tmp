@@ -1,0 +1,33 @@
+\hypertarget{classCAlive}{}\doxysection{CAlive Class Reference}
+\label{classCAlive}\index{CAlive@{CAlive}}
+
+
+Inheritance diagram for CAlive\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCAlive_a491a26dc26c5fb1220ae0b3b4b63043a}\label{classCAlive_a491a26dc26c5fb1220ae0b3b4b63043a}} 
+void {\bfseries hurt} (int damage)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCAlive_ad621456381a442ca0617ba332e105e4e}\label{classCAlive_ad621456381a442ca0617ba332e105e4e}} 
+int {\bfseries health} =100
+\item 
+\mbox{\Hypertarget{classCAlive_a088d34d377351e9c663f82a65290920e}\label{classCAlive_a088d34d377351e9c663f82a65290920e}} 
+int {\bfseries armor}
+\item 
+\mbox{\Hypertarget{classCAlive_ab9f13ef688c50d53d39842fa47393de8}\label{classCAlive_ab9f13ef688c50d53d39842fa47393de8}} 
+bool {\bfseries alive} =true
+\item 
+\mbox{\Hypertarget{classCAlive_a9e86c7e6b878a53b78fbb8e1fd7397b2}\label{classCAlive_a9e86c7e6b878a53b78fbb8e1fd7397b2}} 
+bool {\bfseries hurtanim} =false
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+aliveent.\+h\item 
+aliveent.\+cpp\end{DoxyCompactItemize}
