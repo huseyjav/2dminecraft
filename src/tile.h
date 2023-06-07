@@ -5,6 +5,7 @@
 #include "utils.h"
 #include "renderer.h"
 #include "renderable.h"
+#include "assets.h"
 #define GRASS 1
 #define VOID 0
 
@@ -12,6 +13,7 @@ class CCameraRenderer;
 
 class CTile : public CRenderable{ // placeholder class for testing purposes
 public:
+    //CAssets* assets;
     int type;
     int x,y;
     int health=100;

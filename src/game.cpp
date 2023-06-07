@@ -11,12 +11,15 @@ CGame::CGame() : world(new CWorld(100, 20))
     //tick=0;
     // spawn player in middle of world
     // set camera to render
-    localplayer = new CPlayer(603, 600, 95, 195,10, world);
+    localplayer = new CPlayer(603, 600, 70, 195,10, world);
     hud =new CHud(localplayer);
     SDL_CreateWindowAndRenderer(1500, 1000, 0, &window, &renderer);
     camrednerer = new CCameraRenderer(window, renderer, world);
+    assets = new CAssets(camrednerer);
     world->setplayer(localplayer);
     world->worldnpcs.push_back(new CNpc(2000,800,90,195,7,world,localplayer));
+    camrednerer->assets = assets;
+    //cout << "asd " << assets;
 }
 
 void CGame::loop()
@@ -89,12 +92,15 @@ void CGame::handleinputs()
 
 CGame::~CGame()
 {
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
+    
     //cout << "adasd" << endl;
     delete world;
     delete camrednerer;
     delete localplayer;
     delete hud;
+    delete assets;
+
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
 }

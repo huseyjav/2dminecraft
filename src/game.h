@@ -6,7 +6,7 @@
 #include "player.h"
 #include "hud.h"
 #include "npc.h"
-
+#include "assets.h"
 class CEntity;
 
 
@@ -22,7 +22,7 @@ public:
     CCameraRenderer* camrednerer = nullptr;
     CPlayer* localplayer = nullptr;
     CHud* hud=nullptr;
-    
+    CAssets* assets=nullptr;
     CGame();
     void loop();
     void handleinputs();

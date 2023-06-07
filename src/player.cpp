@@ -26,6 +26,12 @@ void CPlayer::update(){
         //health-=10;
         hurt(20);
     }
+    if(oldx > x){
+        isorientationleft=true;
+    }
+    else if(oldx < x) isorientationleft=false;
+    oldx = x;
+    oldy = y;
     //if(health<=0) alive=false;
     
 }
@@ -40,7 +46,24 @@ void CPlayer::respawn(){
 
 void CPlayer::render(CCameraRenderer* camrenderer){
     if(alive){
-        CEntity::render(camrenderer);
+        //CEntity::render(camrenderer);
+        vector2 screenpos = camrenderer->worldtoscreen(vector2{x,y});
+
+
+        SDL_Rect rect;
+        rect.x = screenpos.x;
+        rect.y = 1000-screenpos.y-h;
+        rect.w = w;
+        rect.h = h;
+        SDL_Rect spritesheet;
+        spritesheet.x = 24;
+        spritesheet.y = 0;
+        spritesheet.w = 16;
+        spritesheet.h = 64;
+        //SDL_RenderCopy(camrenderer->renderer,camrenderer->assets->player_sprite,&spritesheet,&rect);
+        SDL_RenderCopyEx(camrenderer->renderer,camrenderer->assets->player_sprite,&spritesheet,&rect,0,nullptr,isorientationleft ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+
+
     if(hurtanim){
         vector2 screenpos = camrenderer->worldtoscreen(vector2{x,y});
 

@@ -2,19 +2,17 @@
 #include "SDL2/SDL.h"
 #include "tile.h"
 #include "utils.h"
-
 #include "renderable.h"
 
 class CWorld;
-
+class CAssets;
 class CCameraRenderer{
 public:
     SDL_Window* window;
     SDL_Renderer* renderer;
     CWorld* world;
     int centerX, centerY; //world pos of where camera is 
-
-    
+    CAssets* assets;
     CCameraRenderer(SDL_Window* window,SDL_Renderer* renderer,CWorld* world);
     
     void centerTo(int x, int y);

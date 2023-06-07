@@ -16,8 +16,10 @@ class CPhyiscs : public CRenderable{
 public:
     // location in world
     int x,y; 
+    int oldx=0,oldy=0;
     // collidable widht, height in world
     int w,h;
+    int isorientationleft = false;
     int velocityX;
     int velocityY;
     CWorld* world;
