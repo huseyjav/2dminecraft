@@ -1,7 +1,7 @@
 #include "world.h"
 #include <iostream>
 #include "player.h"
-
+#include "game.h"
 
 CWorld::CWorld(int w, int h){
     for(int i = 0 ; i < h;i++){
@@ -45,12 +45,6 @@ void CWorld::setplayer(CPlayer* pl){
 
 void CWorld::update(){
     player->update();
-    // for(auto i : worldnpcs){
-    //     if(!i->alive){
-    //         worldnpcs.erase(i);
-    //     }
-    //     i->update();
-    // }
     for(auto i = worldnpcs.begin() ; i!=worldnpcs.end();){
         if(!(*i)->alive){
             delete *i;
@@ -67,6 +61,7 @@ void CWorld::update(){
         worldnpcs.push_back(new CNpc(2000,800,90,195,7,this,player));
         //worldnpcs.push_back(new CNpc(0,800,90,195,7,this,player));
     }
+    //resetTilehealth();
 }
 
 void CWorld::handleInput(CCameraRenderer * camrenderer){
@@ -95,14 +90,20 @@ void CWorld::handleInput(CCameraRenderer * camrenderer){
 }
 
 void CWorld::handleAttack(CItem* item, CEntity* owner, vector2 worldpoint){
-    vector<vector2> a = bresenhamalgo(vector2{owner->x,owner->y},worldpoint);
+    //extra calculation is to set eyepos 
+    vector<vector2> a = bresenhamalgo(vector2{owner->x+owner->w/2,owner->y+(int)((double)owner->h*0.9)},worldpoint);
     for(auto i : a){
         if(tiles.at(i.y/100).at(i.x/100).isCollidable()){
-            cout << "mining block" << endl;
+            lastminedx=i.x/100;
+            lastminedy=i.y/100;
+            lastminetick = CGame::tick;
+            tiles.at(i.y/100).at(i.x/100).health-=((CMelee*)item)->damage;
+            if(tiles.at(i.y/100).at(i.x/100).health<=0){
+                tiles.at(i.y/100).at(i.x/100).type=VOID;
+            }
             return;
         }
         if(owner!=player){
-            //cout << " aushdasudasudhasudha " << endl;
             if(i.x > player->x && i.x < player->x+player->w && i.y > player->y && i.y < player->y + player->h){
                 player->hurt(((CMelee*)item)->damage);
                 return;
@@ -117,5 +118,12 @@ void CWorld::handleAttack(CItem* item, CEntity* owner, vector2 worldpoint){
                 return;
             }
         }
+    }
+}
+
+
+void CWorld::resetTilehealth(){
+    if(CGame::tick!=lastminetick && lastminedx>=0 && lastminedy>=0){
+        //tiles.at(lastminedy).at(lastminedx).health = tiles.at(lastminedy).at(lastminedx).maxhealth;
     }
 }

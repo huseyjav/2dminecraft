@@ -5,7 +5,7 @@
 using namespace std;
 
 CTile::CTile(int type, int x, int y): type(type),x(x),y(y){
-
+    //health = 100;
 }
 
 void CTile::render(CCameraRenderer * renderer){
@@ -25,11 +25,18 @@ void CTile::render(CCameraRenderer * renderer){
     }
     if(type==GRASS){
         
-        SDL_SetRenderDrawColor(renderer->renderer, 0, 177, 0, 0);
+        SDL_SetRenderDrawColor(renderer->renderer, 0, 177, 0, 255);
         SDL_RenderFillRect(renderer->renderer,&rect);
         SDL_SetRenderDrawColor(renderer->renderer, 0, 255, 0, 255);
         SDL_RenderDrawRect(renderer->renderer,&rect);
 
+        SDL_SetRenderDrawBlendMode(renderer->renderer,SDL_BLENDMODE_BLEND);
+
+        //cout << health << endl;
+        SDL_SetRenderDrawColor(renderer->renderer, 0, 0, 0, ((100-health)*255)/100   );
+        SDL_RenderFillRect(renderer->renderer,&rect);
+
+        SDL_SetRenderDrawBlendMode(renderer->renderer,SDL_BLENDMODE_NONE);
     }
     
 }

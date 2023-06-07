@@ -56,8 +56,8 @@ void CPhyiscs::setonGround(){
 bool CPhyiscs::isValidcoordinate(int newx, int newy){
     if(newx<0 || newy<0) return false;
     //cout << y << " "<< x << endl;
-    if((newy+h-1)/100 >= world->tiles.size()) return false;
-    if((newx+w-1)/100 >= world->tiles.at(0).size()) return false;
+    if(uint(newy+h-1)/100 >= world->tiles.size()) return false;
+    if(uint(newx+w-1)/100 >= world->tiles.at(0).size()) return false;
     //cout << (newy+h-1)/100  << endl;
     for(int i = (newy)/100 ; i <=(newy+h-1)/100 ; i ++) { // edge case : y is 0
         for(int j = (newx)/100 ; j<=(newx+w-1)/100;j++){
@@ -114,7 +114,7 @@ void CPhyiscs::jump(){
 }
 
 void CPhyiscs::stepajump(){
-    int maxjump = 150; // hardcoded value of how far object will jump
+    //int maxjump = 150; // hardcoded value of how far object will jump
     if(timeinair>0){
         timeinair-=16;
         movewOffset(0,15);

@@ -16,3 +16,7 @@ void CHud::render(CCameraRenderer* camrenderer){
     SDL_SetRenderDrawColor(camrenderer->renderer, 255, 0, 0, 0);
     SDL_RenderFillRect(camrenderer->renderer,&rect);
 }
+
+CHud::~CHud(){
+    
+}

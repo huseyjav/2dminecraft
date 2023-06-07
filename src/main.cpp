@@ -1,4 +1,3 @@
-#pragma once
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
@@ -6,8 +5,12 @@
 #include <game.h>
 using namespace std;
 
-int main(int argc, char * argv[])
+unsigned int CGame::tick = 0;
+
+
+int main()
 {
+	
 	CGame game;
 	game.loop();
 

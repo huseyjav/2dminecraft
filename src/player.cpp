@@ -6,8 +6,8 @@
 
 using namespace std;
 
-CPlayer::CPlayer(int x, int y, int w, int h, int velocityX,CWorld* world): CEntity(x,y,w,h,velocityX,world){
-    activeitem = new CMelee(1,this,300,50);
+CPlayer::CPlayer(int x, int y, int w, int h, int velocityX,CWorld* world): CEntity(x,y,w,h,velocityX,world),activeitem (new CMelee(1,this,200,20)){
+    
     
 }
 
@@ -62,4 +62,8 @@ void CPlayer::render(CCameraRenderer* camrenderer){
 void CPlayer::useactiveitem(vector2 worldpos){
     if(!activeitem) return;
     activeitem->use(world,worldpos);
+}
+
+CPlayer::~CPlayer(){
+    delete activeitem;
 }

@@ -8,14 +8,13 @@ using namespace std;
 
 CGame::CGame() : world(new CWorld(100, 20))
 {
+    //tick=0;
     // spawn player in middle of world
     // set camera to render
-    
-
+    localplayer = new CPlayer(603, 600, 95, 195,10, world);
+    hud =new CHud(localplayer);
     SDL_CreateWindowAndRenderer(1500, 1000, 0, &window, &renderer);
     camrednerer = new CCameraRenderer(window, renderer, world);
-    localplayer = new CPlayer(603, 600, 95, 195,10, world);
-    hud = new CHud(localplayer);
     world->setplayer(localplayer);
     world->worldnpcs.push_back(new CNpc(2000,800,90,195,7,world,localplayer));
 }
@@ -43,7 +42,7 @@ void CGame::loop()
         world->render(camrednerer);
         hud->render(camrednerer);
         SDL_RenderPresent(renderer);
-
+        tick++;
         if (expectednexttick > SDL_GetTicks())
             SDL_Delay(expectednexttick - SDL_GetTicks()); // game logic might take more than delay time and might cause it to get negative therefore overflow (40days of delay :X)
                                                           // TODO: implement better tick system

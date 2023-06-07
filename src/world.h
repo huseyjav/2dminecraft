@@ -24,14 +24,16 @@ public:
     float gravity;
     CPlayer* player;
     vector<CNpc*> worldnpcs;
+    int lastminedx=-1, lastminedy=-1;
+    unsigned int lastminetick=0;
     CWorld(int w, int h);
-    ~CWorld();
+    virtual ~CWorld();
     void setplayer(CPlayer* pl);
     void render(CCameraRenderer * renderer) override;
     void update();
     vector2 genSpawnpoint();
     void handleInput(CCameraRenderer * camrenderer);
-
+    void resetTilehealth();
     /**
      * @brief handles a melee attack
      * 

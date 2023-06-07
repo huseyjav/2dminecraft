@@ -12,4 +12,5 @@ public:
     CItem(int itemID, CEntity* owner);
     virtual void use(CWorld* world, vector2 clickpos)=0;
     //virtual CEntity* spawnentity()=0;
+    virtual ~CItem() = default;
 };

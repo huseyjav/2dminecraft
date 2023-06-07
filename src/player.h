@@ -25,4 +25,5 @@ public:
     CPlayer(int x, int y, int w, int h, int velocityX ,CWorld* world);
     void useactiveitem(vector2 worldpos);
     void respawn();
+    virtual ~CPlayer();
 };

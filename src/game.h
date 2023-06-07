@@ -11,16 +11,18 @@ class CEntity;
 
 
 class CGame{
+public:
     SDL_Event events;
     bool isRunning=true;
     int state=0;
+    CWorld* world;
+    static unsigned int tick;
     SDL_Window* window = nullptr;
     SDL_Renderer* renderer = nullptr;
     CCameraRenderer* camrednerer = nullptr;
     CPlayer* localplayer = nullptr;
-public:
-    CWorld* world;
-    CHud* hud;
+    CHud* hud=nullptr;
+    
     CGame();
     void loop();
     void handleinputs();

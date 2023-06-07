@@ -9,4 +9,5 @@ public:
     CHud() = default;
     CHud(CPlayer* localplayer);
     void render(CCameraRenderer* camrenderer) override;
+    virtual ~CHud();
 };
