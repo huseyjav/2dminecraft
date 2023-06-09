@@ -12,7 +12,7 @@ CGame::CGame() : world(new CWorld(100, 20))
     // spawn player in middle of world
     // set camera to render
     localplayer = new CPlayer(603, 600, 70, 195,10, world);
-    hud =new CHud(localplayer);
+    hud = new CHud(localplayer);
     SDL_CreateWindowAndRenderer(1500, 1000, 0, &window, &renderer);
     camrednerer = new CCameraRenderer(window, renderer, world);
     assets = new CAssets(camrednerer);
@@ -64,13 +64,31 @@ void CGame::handleinputs()
         {
             isRunning = false;
         }
-        // if(events.type == SDL_KEYDOWN)
-        // {
-        //     if(events.key.keysym.sym==SDLK_SPACE){
-        //         if(localplayer->alive) localplayer->jump();
-        //         else localplayer->respawn();
-        //     }
-        // }
+        if(events.type == SDL_KEYDOWN)
+        {
+            if(events.key.keysym.sym==SDLK_SPACE){
+                if(localplayer->alive) localplayer->jump();
+                else localplayer->respawn();
+            }
+            if(events.key.keysym.sym == SDLK_1){
+                if(localplayer->alive) localplayer->setactiveitem(1);
+            }
+            if(events.key.keysym.sym == SDLK_2){
+                if(localplayer->alive) localplayer->setactiveitem(2);
+            }
+            if(events.key.keysym.sym == SDLK_3){
+                if(localplayer->alive) localplayer->setactiveitem(3);
+            }
+            if(events.key.keysym.sym == SDLK_4){
+                if(localplayer->alive) localplayer->setactiveitem(4);
+            }
+            if(events.key.keysym.sym == SDLK_5){
+                if(localplayer->alive) localplayer->setactiveitem(5);
+            }
+            if(events.key.keysym.sym == SDLK_6){
+                if(localplayer->alive) localplayer->setactiveitem(6);
+            }
+        }
 
     }
 

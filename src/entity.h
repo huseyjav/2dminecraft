@@ -7,6 +7,7 @@ class CWorld;
 
 class CEntity : public CPhyiscs{
 public:
+    bool shouldberemoved=false;
     entityID id;
     //CEntity()=default;
     CEntity(int x, int y, int w, int h,int velocityX,CWorld* world);

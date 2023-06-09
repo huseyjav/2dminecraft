@@ -1,14 +1,16 @@
 #include "player.h"
 #include "world.h"
 #include "entity.h"
-
+#include "itemfactory.h"
 #include <iostream>
 
 using namespace std;
 
-CPlayer::CPlayer(int x, int y, int w, int h, int velocityX,CWorld* world): CEntity(x,y,w,h,velocityX,world),activeitem (new CMelee(1,this,200,20)){
-    
-    
+CPlayer::CPlayer(int x, int y, int w, int h, int velocityX,CWorld* world): CEntity(x,y,w,h,velocityX,world),hotbar(6,nullptr){
+    hotbar.at(0) = makeitem(itemID::emptyhand_id);
+    hotbar.at(1) = makeitem(itemID::sword_id);
+    hotbar.at(0)->owner=this;
+    hotbar.at(1)->owner=this;
 }
 
 
@@ -49,7 +51,6 @@ void CPlayer::render(CCameraRenderer* camrenderer){
         //CEntity::render(camrenderer);
         vector2 screenpos = camrenderer->worldtoscreen(vector2{x,y});
 
-
         SDL_Rect rect;
         rect.x = screenpos.x;
         rect.y = 1000-screenpos.y-h;
@@ -83,10 +84,18 @@ void CPlayer::render(CCameraRenderer* camrenderer){
 }
 
 void CPlayer::useactiveitem(vector2 worldpos){
-    if(!activeitem) return;
-    activeitem->use(world,worldpos);
+    if(!hotbar[activeitem]) return;
+    hotbar[activeitem]->use(world,worldpos);
 }
 
 CPlayer::~CPlayer(){
-    delete activeitem;
+    //delete activeitem;
+}
+
+
+void CPlayer::setactiveitem(int slot){
+    //cout << " asdasd" << endl;
+    if(slot>hotbar.size() || slot<1) return;
+    if(!hotbar[slot-1]) return;
+    activeitem=slot-1;
 }

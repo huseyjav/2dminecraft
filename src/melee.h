@@ -8,7 +8,7 @@ public:
     int damage;
     unsigned int attackcooldown;
     uint lastused=0;
-    CMelee(int itemID,CEntity* owner,int attackcooldown,int damage);
+    CMelee(itemID id,CEntity* owner,int attackcooldown,int damage);
     void use(CWorld* world,vector2 clickpos) override;
     virtual ~CMelee() = default;
 };

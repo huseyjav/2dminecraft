@@ -17,13 +17,15 @@ public:
     int respawnx=600;
     int respawny=600;
 
-    CItem* activeitem;
+    int activeitem=0;
 
+    vector<CItem*> hotbar;
 
     void update() override; // override update to decrease health on fall etc
     virtual void render(CCameraRenderer* camrenderer);
     CPlayer(int x, int y, int w, int h, int velocityX ,CWorld* world);
     void useactiveitem(vector2 worldpos);
     void respawn();
+    void setactiveitem(int slot);
     virtual ~CPlayer();
 };
