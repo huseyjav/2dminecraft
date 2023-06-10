@@ -74,8 +74,9 @@ Inheritance diagram for CItem:</div>
 <div class="dyncontent">
 <div class="center"><img src="classCItem__inherit__graph.png" border="0" usemap="#aCItem_inherit__map" alt="Inheritance graph"/></div>
 <map name="aCItem_inherit__map" id="aCItem_inherit__map">
-<area shape="rect" title=" " alt="" coords="10,5,71,32"/>
+<area shape="rect" title=" " alt="" coords="63,5,125,32"/>
 <area shape="rect" href="classCMelee.html" title=" " alt="" coords="5,80,76,107"/>
+<area shape="rect" href="classCPlaceable.html" title=" " alt="" coords="100,80,195,107"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -83,36 +84,42 @@ Collaboration diagram for CItem:</div>
 <div class="dyncontent">
 <div class="center"><img src="classCItem__coll__graph.png" border="0" usemap="#aCItem_coll__map" alt="Collaboration graph"/></div>
 <map name="aCItem_coll__map" id="aCItem_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,67,32"/>
-<area shape="rect" href="classCPlayer.html" title=" " alt="" coords="68,95,140,121"/>
-<area shape="rect" href="classCEntity.html" title=" " alt="" coords="61,349,131,376"/>
-<area shape="rect" href="classCPhyiscs.html" title=" " alt="" coords="133,273,213,300"/>
-<area shape="rect" href="classCRenderable.html" title=" " alt="" coords="179,95,285,121"/>
-<area shape="rect" href="classCWorld.html" title=" " alt="" coords="134,184,202,211"/>
-<area shape="rect" href="classCAlive.html" title=" " alt="" coords="120,5,184,32"/>
+<area shape="rect" title=" " alt="" coords="5,95,67,121"/>
+<area shape="rect" href="classCEntity.html" title=" " alt="" coords="69,5,139,32"/>
+<area shape="rect" href="classCPlayer.html" title=" " alt="" coords="272,95,344,121"/>
+<area shape="rect" href="classCPhyiscs.html" title=" " alt="" coords="117,273,197,300"/>
+<area shape="rect" href="classCRenderable.html" title=" " alt="" coords="142,95,247,121"/>
+<area shape="rect" href="classCWorld.html" title=" " alt="" coords="195,184,263,211"/>
+<area shape="rect" href="classCAlive.html" title=" " alt="" coords="276,5,340,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af9b7edb96386870b23771d061ea87731"><td class="memItemLeft" align="right" valign="top"><a id="af9b7edb96386870b23771d061ea87731"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CItem</b> (int itemID, <a class="el" href="classCEntity.html">CEntity</a> *owner)</td></tr>
-<tr class="separator:af9b7edb96386870b23771d061ea87731"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28cce4d206ce40b701304607cc601081"><td class="memItemLeft" align="right" valign="top"><a id="a28cce4d206ce40b701304607cc601081"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CItem</b> (itemID id, <a class="el" href="classCEntity.html">CEntity</a> *owner, int stackcount1)</td></tr>
+<tr class="separator:a28cce4d206ce40b701304607cc601081"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2e504894f9b0839c9c613bce4df8540"><td class="memItemLeft" align="right" valign="top"><a id="ae2e504894f9b0839c9c613bce4df8540"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>use</b> (<a class="el" href="classCWorld.html">CWorld</a> *world, <a class="el" href="structvector2.html">vector2</a> clickpos)=0</td></tr>
 <tr class="separator:ae2e504894f9b0839c9c613bce4df8540"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a2a55ac7539e4dbdb30195078f5872bb2"><td class="memItemLeft" align="right" valign="top"><a id="a2a55ac7539e4dbdb30195078f5872bb2"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>itemID</b></td></tr>
-<tr class="separator:a2a55ac7539e4dbdb30195078f5872bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18e11b56900937cf36406907f810500c"><td class="memItemLeft" align="right" valign="top"><a id="a18e11b56900937cf36406907f810500c"></a>
+itemID&#160;</td><td class="memItemRight" valign="bottom"><b>id</b></td></tr>
+<tr class="separator:a18e11b56900937cf36406907f810500c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a363c70381eaa290fa939c1c3a8910e4a"><td class="memItemLeft" align="right" valign="top"><a id="a363c70381eaa290fa939c1c3a8910e4a"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>lastusedtick</b></td></tr>
 <tr class="separator:a363c70381eaa290fa939c1c3a8910e4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e2adefe8eea6c90c1fe37604cd76d7d"><td class="memItemLeft" align="right" valign="top"><a id="a6e2adefe8eea6c90c1fe37604cd76d7d"></a>
 <a class="el" href="classCEntity.html">CEntity</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>owner</b></td></tr>
 <tr class="separator:a6e2adefe8eea6c90c1fe37604cd76d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac17763d6bc020163d252a08cb704b016"><td class="memItemLeft" align="right" valign="top"><a id="ac17763d6bc020163d252a08cb704b016"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>currentcount</b> =1</td></tr>
+<tr class="separator:ac17763d6bc020163d252a08cb704b016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafb947e93eaf12faddbb2aff2405e73e"><td class="memItemLeft" align="right" valign="top"><a id="aafb947e93eaf12faddbb2aff2405e73e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>maxcount</b></td></tr>
+<tr class="separator:aafb947e93eaf12faddbb2aff2405e73e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="item_8h_source.html">item.h</a></li>

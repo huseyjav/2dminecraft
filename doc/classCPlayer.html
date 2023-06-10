@@ -86,13 +86,12 @@ Collaboration diagram for CPlayer:</div>
 <div class="dyncontent">
 <div class="center"><img src="classCPlayer__coll__graph.png" border="0" usemap="#aCPlayer_coll__map" alt="Collaboration graph"/></div>
 <map name="aCPlayer_coll__map" id="aCPlayer_coll__map">
-<area shape="rect" title=" " alt="" coords="150,81,222,108"/>
-<area shape="rect" href="classCWorld.html" title=" " alt="" coords="80,171,148,197"/>
-<area shape="rect" href="classCEntity.html" title=" " alt="" coords="141,336,210,363"/>
-<area shape="rect" href="classCItem.html" title=" " alt="" coords="181,425,242,452"/>
-<area shape="rect" href="classCPhyiscs.html" title=" " alt="" coords="69,260,149,287"/>
+<area shape="rect" title=" " alt="" coords="143,81,215,108"/>
+<area shape="rect" href="classCWorld.html" title=" " alt="" coords="81,171,149,197"/>
+<area shape="rect" href="classCEntity.html" title=" " alt="" coords="114,336,183,363"/>
+<area shape="rect" href="classCPhyiscs.html" title=" " alt="" coords="70,260,150,287"/>
 <area shape="rect" href="classCRenderable.html" title=" " alt="" coords="5,81,111,108"/>
-<area shape="rect" href="classCAlive.html" title=" " alt="" coords="154,5,218,32"/>
+<area shape="rect" href="classCAlive.html" title=" " alt="" coords="147,5,211,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -113,10 +112,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>useactiveitem</b> (<a
 <tr class="memitem:a26acce8f8f3e56088b10b2bbbf7f082f"><td class="memItemLeft" align="right" valign="top"><a id="a26acce8f8f3e56088b10b2bbbf7f082f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>respawn</b> ()</td></tr>
 <tr class="separator:a26acce8f8f3e56088b10b2bbbf7f082f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3084a9cb4cad76da69654db3d1d712c1"><td class="memItemLeft" align="right" valign="top"><a id="a3084a9cb4cad76da69654db3d1d712c1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setactiveitem</b> (int slot)</td></tr>
+<tr class="separator:a3084a9cb4cad76da69654db3d1d712c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab933b5ca1f78a51aae1e2eae638cc529"><td class="memItemLeft" align="right" valign="top"><a id="ab933b5ca1f78a51aae1e2eae638cc529"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>stackitem</b> (itemID id, int count)</td></tr>
+<tr class="separator:ab933b5ca1f78a51aae1e2eae638cc529"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCEntity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCEntity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCEntity.html">CEntity</a></td></tr>
 <tr class="memitem:a78110c6e4d9e18c6f2f21f2e31d3d859 inherit pub_methods_classCEntity"><td class="memItemLeft" align="right" valign="top"><a id="a78110c6e4d9e18c6f2f21f2e31d3d859"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>CEntity</b> (int x, int y, int w, int h, int velocityX, <a class="el" href="classCWorld.html">CWorld</a> *world)</td></tr>
 <tr class="separator:a78110c6e4d9e18c6f2f21f2e31d3d859 inherit pub_methods_classCEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0834c25469675c6b5805ca44b04caa5f inherit pub_methods_classCEntity"><td class="memItemLeft" align="right" valign="top"><a id="a0834c25469675c6b5805ca44b04caa5f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CEntity</b> (entityID, int, int, int, int, int, <a class="el" href="classCWorld.html">CWorld</a> *)</td></tr>
+<tr class="separator:a0834c25469675c6b5805ca44b04caa5f inherit pub_methods_classCEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCPhyiscs"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCPhyiscs')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCPhyiscs.html">CPhyiscs</a></td></tr>
 <tr class="memitem:a560069c70a3a932d51bfdaa85bf958a3 inherit pub_methods_classCPhyiscs"><td class="memItemLeft" align="right" valign="top"><a id="a560069c70a3a932d51bfdaa85bf958a3"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>CPhyiscs</b> (int x, int y, int w, int h, int velocityX, <a class="el" href="classCWorld.html">CWorld</a> *world)</td></tr>
@@ -170,10 +178,16 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>respawnx</b> =600</td>
 <tr class="memitem:ac7eff671dbe64f1079262be4dcc0d896"><td class="memItemLeft" align="right" valign="top"><a id="ac7eff671dbe64f1079262be4dcc0d896"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>respawny</b> =600</td></tr>
 <tr class="separator:ac7eff671dbe64f1079262be4dcc0d896"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45ac10c265cfe7512913b3f7e96a9d54"><td class="memItemLeft" align="right" valign="top"><a id="a45ac10c265cfe7512913b3f7e96a9d54"></a>
-<a class="el" href="classCItem.html">CItem</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>activeitem</b></td></tr>
-<tr class="separator:a45ac10c265cfe7512913b3f7e96a9d54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa09987f2c45e503e25caf7c7c4891d75"><td class="memItemLeft" align="right" valign="top"><a id="aa09987f2c45e503e25caf7c7c4891d75"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>activeitem</b> =0</td></tr>
+<tr class="separator:aa09987f2c45e503e25caf7c7c4891d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43153d146449976d0e86ab77191d4a88"><td class="memItemLeft" align="right" valign="top"><a id="a43153d146449976d0e86ab77191d4a88"></a>
+vector&lt; <a class="el" href="classCItem.html">CItem</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>hotbar</b></td></tr>
+<tr class="separator:a43153d146449976d0e86ab77191d4a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classCEntity"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classCEntity')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classCEntity.html">CEntity</a></td></tr>
+<tr class="memitem:a6f5011436e0d6eed9c4e04bec7fda097 inherit pub_attribs_classCEntity"><td class="memItemLeft" align="right" valign="top"><a id="a6f5011436e0d6eed9c4e04bec7fda097"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>shouldberemoved</b> =false</td></tr>
+<tr class="separator:a6f5011436e0d6eed9c4e04bec7fda097 inherit pub_attribs_classCEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c0b0ee98421b8b98168fe6b26288723 inherit pub_attribs_classCEntity"><td class="memItemLeft" align="right" valign="top"><a id="a3c0b0ee98421b8b98168fe6b26288723"></a>
 entityID&#160;</td><td class="memItemRight" valign="bottom"><b>id</b></td></tr>
 <tr class="separator:a3c0b0ee98421b8b98168fe6b26288723 inherit pub_attribs_classCEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>

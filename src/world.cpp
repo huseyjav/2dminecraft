@@ -3,6 +3,7 @@
 #include "player.h"
 #include "game.h"
 #include "pickable.h"
+#include "hostilenpc.h"
 CWorld::CWorld(int w, int h){
     for(int i = 0 ; i < h;i++){
         vector<CTile> topushback;
@@ -65,7 +66,7 @@ void CWorld::update(){
         i++;
     }
     if(worldnpcs.size()==0){
-        worldnpcs.push_back(new CNpc(2000,800,90,195,7,this,player));
+        worldnpcs.push_back(new CZombie(2000,800,90,195,7,this,player));
         //worldnpcs.push_back(new CNpc(0,800,90,195,7,this,player));
     }
     // for(auto i : entities){
@@ -122,7 +123,7 @@ void CWorld::handleAttack(CItem* item, CEntity* owner, vector2 worldpoint){
             lastminedx=i.x/100;
             lastminedy=i.y/100;
             lastminetick = CGame::tick;
-            tiles.at(i.y/100).at(i.x/100).health-=((CMelee*)item)->damage;
+            if(owner == player) tiles.at(i.y/100).at(i.x/100).health-=((CMelee*)item)->damage;
             if(tiles.at(i.y/100).at(i.x/100).health<=0){
                 tileID temp = tiles.at(i.y/100).at(i.x/100).type;
                 tiles.at(i.y/100).at(i.x/100).type=tileID::void_id;

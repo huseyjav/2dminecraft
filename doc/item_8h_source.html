@@ -73,20 +73,32 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// #include &quot;world.h&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// #include &quot;entity.h&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;utils.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">class </span><a class="code" href="classCWorld.html">CWorld</a>;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">class </span><a class="code" href="classCEntity.html">CEntity</a>;</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classCItem.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCItem.html">CItem</a> {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordtype">int</span> itemID;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">int</span> lastusedtick;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classCEntity.html">CEntity</a>* owner;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="classCItem.html">CItem</a>(<span class="keywordtype">int</span> itemID, <a class="code" href="classCEntity.html">CEntity</a>* owner);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> use(<a class="code" href="classCWorld.html">CWorld</a>* world, <a class="code" href="structvector2.html">vector2</a> clickpos)=0;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">//virtual CEntity* spawnentity()=0;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classCItem.html">CItem</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;constids.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;assets.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">class </span><a class="code" href="classCWorld.html">CWorld</a>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">class </span><a class="code" href="classCEntity.html">CEntity</a>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classCItem.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCItem.html">CItem</a> {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    itemID id;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">int</span> lastusedtick;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="classCEntity.html">CEntity</a>* owner;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">int</span> currentcount=1;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">int</span> maxcount;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classCItem.html">CItem</a>(itemID <span class="keywordtype">id</span>, <a class="code" href="classCEntity.html">CEntity</a>* owner,<span class="keywordtype">int</span> stackcount1);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> use(<a class="code" href="classCWorld.html">CWorld</a>* world, <a class="code" href="structvector2.html">vector2</a> clickpos)=0;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">//virtual CEntity* spawnentity()=0;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classCItem.html">CItem</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;SDL_Texture* getTexture(itemID <span class="keywordtype">id</span>,<a class="code" href="classCAssets.html">CAssets</a>* assets);</div>
+<div class="ttc" id="aclassCAssets_html"><div class="ttname"><a href="classCAssets.html">CAssets</a></div><div class="ttdef"><b>Definition:</b> assets.h:7</div></div>
 <div class="ttc" id="aclassCEntity_html"><div class="ttname"><a href="classCEntity.html">CEntity</a></div><div class="ttdef"><b>Definition:</b> entity.h:8</div></div>
-<div class="ttc" id="aclassCItem_html"><div class="ttname"><a href="classCItem.html">CItem</a></div><div class="ttdef"><b>Definition:</b> item.h:7</div></div>
+<div class="ttc" id="aclassCItem_html"><div class="ttname"><a href="classCItem.html">CItem</a></div><div class="ttdef"><b>Definition:</b> item.h:9</div></div>
 <div class="ttc" id="aclassCWorld_html"><div class="ttname"><a href="classCWorld.html">CWorld</a></div><div class="ttdef"><b>Definition:</b> world.h:21</div></div>
 <div class="ttc" id="astructvector2_html"><div class="ttname"><a href="structvector2.html">vector2</a></div><div class="ttdef"><b>Definition:</b> utils.h:4</div></div>
 </div><!-- fragment --></div><!-- contents -->

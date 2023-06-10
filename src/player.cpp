@@ -86,6 +86,7 @@ void CPlayer::render(CCameraRenderer* camrenderer){
 }
 
 void CPlayer::useactiveitem(vector2 worldpos){
+    if(!alive) return;
     if(!hotbar[activeitem]) return;
     hotbar[activeitem]->use(world,worldpos);
     if(hotbar[activeitem]->currentcount<=0){

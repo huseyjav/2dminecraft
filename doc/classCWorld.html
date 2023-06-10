@@ -84,12 +84,11 @@ Collaboration diagram for CWorld:</div>
 <div class="center"><img src="classCWorld__coll__graph.png" border="0" usemap="#aCWorld_coll__map" alt="Collaboration graph"/></div>
 <map name="aCWorld_coll__map" id="aCWorld_coll__map">
 <area shape="rect" title=" " alt="" coords="106,81,174,108"/>
-<area shape="rect" href="classCPhyiscs.html" title=" " alt="" coords="171,171,251,197"/>
+<area shape="rect" href="classCPhyiscs.html" title=" " alt="" coords="144,171,224,197"/>
 <area shape="rect" href="classCRenderable.html" title=" " alt="" coords="123,5,229,32"/>
-<area shape="rect" href="classCPlayer.html" title=" " alt="" coords="92,425,164,452"/>
-<area shape="rect" href="classCEntity.html" title=" " alt="" coords="176,247,245,273"/>
-<area shape="rect" href="classCItem.html" title=" " alt="" coords="145,336,207,363"/>
-<area shape="rect" href="classCAlive.html" title=" " alt="" coords="5,336,69,363"/>
+<area shape="rect" href="classCPlayer.html" title=" " alt="" coords="71,336,143,363"/>
+<area shape="rect" href="classCEntity.html" title=" " alt="" coords="147,260,216,287"/>
+<area shape="rect" href="classCAlive.html" title=" " alt="" coords="5,260,69,287"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -119,6 +118,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>resetTilehealth</b> (
 <tr class="memitem:a2e5e9f1a2eabeec8ca035cdd37cb9a2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCWorld.html#a2e5e9f1a2eabeec8ca035cdd37cb9a2f">handleAttack</a> (<a class="el" href="classCItem.html">CItem</a> *item, <a class="el" href="classCEntity.html">CEntity</a> *owner, <a class="el" href="structvector2.html">vector2</a> worldpoint)</td></tr>
 <tr class="memdesc:a2e5e9f1a2eabeec8ca035cdd37cb9a2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">handles a melee attack  <a href="classCWorld.html#a2e5e9f1a2eabeec8ca035cdd37cb9a2f">More...</a><br /></td></tr>
 <tr class="separator:a2e5e9f1a2eabeec8ca035cdd37cb9a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0156897b05b36283089ed27fd28521be"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCWorld.html#a0156897b05b36283089ed27fd28521be">isempty</a> (int x, int y)</td></tr>
+<tr class="memdesc:a0156897b05b36283089ed27fd28521be"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns whether some entity is on a void block or not  <a href="classCWorld.html#a0156897b05b36283089ed27fd28521be">More...</a><br /></td></tr>
+<tr class="separator:a0156897b05b36283089ed27fd28521be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc4b1624592fc122aee1a71d42657aec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCWorld.html#adc4b1624592fc122aee1a71d42657aec">iswithinlimitsofmap</a> (int x, int y)</td></tr>
+<tr class="memdesc:adc4b1624592fc122aee1a71d42657aec"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if given x,y is without bounds of the current map  <a href="classCWorld.html#adc4b1624592fc122aee1a71d42657aec">More...</a><br /></td></tr>
+<tr class="separator:adc4b1624592fc122aee1a71d42657aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90bcfcbf8692d0dbfbb405ab16848c50"><td class="memItemLeft" align="right" valign="top"><a id="a90bcfcbf8692d0dbfbb405ab16848c50"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>placeblock</b> (tileID toplace, <a class="el" href="structvector2.html">vector2</a> worldpoint)</td></tr>
+<tr class="separator:a90bcfcbf8692d0dbfbb405ab16848c50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -134,6 +142,9 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>gravity</b></td></tr
 <tr class="memitem:a07c611ee9aad56c775b97ae335f35673"><td class="memItemLeft" align="right" valign="top"><a id="a07c611ee9aad56c775b97ae335f35673"></a>
 vector&lt; <a class="el" href="classCNpc.html">CNpc</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>worldnpcs</b></td></tr>
 <tr class="separator:a07c611ee9aad56c775b97ae335f35673"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b3a6fe6452cb13e75cf115df968d486"><td class="memItemLeft" align="right" valign="top"><a id="a0b3a6fe6452cb13e75cf115df968d486"></a>
+vector&lt; <a class="el" href="classCEntity.html">CEntity</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>entities</b></td></tr>
+<tr class="separator:a0b3a6fe6452cb13e75cf115df968d486"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8dedbd7a5e09860cd6ebc6fd4a61ddcd"><td class="memItemLeft" align="right" valign="top"><a id="a8dedbd7a5e09860cd6ebc6fd4a61ddcd"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>lastminedx</b> =-1</td></tr>
 <tr class="separator:a8dedbd7a5e09860cd6ebc6fd4a61ddcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -198,6 +209,86 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>lastclickedtiley</b> =
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a0156897b05b36283089ed27fd28521be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0156897b05b36283089ed27fd28521be">&#9670;&nbsp;</a></span>isempty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CWorld::isempty </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns whether some entity is on a void block or not </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>index of the block on x axis </td></tr>
+    <tr><td class="paramname">y</td><td>index of the block on y axis </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true </dd>
+<dd>
+false </dd></dl>
+
+</div>
+</div>
+<a id="adc4b1624592fc122aee1a71d42657aec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc4b1624592fc122aee1a71d42657aec">&#9670;&nbsp;</a></span>iswithinlimitsofmap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CWorld::iswithinlimitsofmap </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>checks if given x,y is without bounds of the current map </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramname">y</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true </dd>
+<dd>
+false </dd></dl>
 
 </div>
 </div>

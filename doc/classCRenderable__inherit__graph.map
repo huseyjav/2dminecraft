@@ -1,10 +1,12 @@
 <map id="CRenderable" name="CRenderable">
-<area shape="rect" id="node1" title=" " alt="" coords="120,5,225,32"/>
-<area shape="rect" id="node2" href="$classCHud.html" title=" " alt="" coords="5,80,63,107"/>
-<area shape="rect" id="node3" href="$classCPhyiscs.html" title=" " alt="" coords="87,80,167,107"/>
-<area shape="rect" id="node7" href="$classCTile.html" title=" " alt="" coords="192,80,247,107"/>
-<area shape="rect" id="node8" href="$classCWorld.html" title=" " alt="" coords="271,80,339,107"/>
-<area shape="rect" id="node4" href="$classCEntity.html" title=" " alt="" coords="93,155,162,181"/>
-<area shape="rect" id="node5" href="$classCNpc.html" title=" " alt="" coords="55,229,111,256"/>
-<area shape="rect" id="node6" href="$classCPlayer.html" title=" " alt="" coords="135,229,207,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="133,5,239,32"/>
+<area shape="rect" id="node2" href="$classCHud.html" title=" " alt="" coords="19,80,76,107"/>
+<area shape="rect" id="node3" href="$classCPhyiscs.html" title=" " alt="" coords="101,80,181,107"/>
+<area shape="rect" id="node9" href="$classCTile.html" title=" " alt="" coords="205,80,260,107"/>
+<area shape="rect" id="node10" href="$classCWorld.html" title=" " alt="" coords="284,80,352,107"/>
+<area shape="rect" id="node4" href="$classCEntity.html" title=" " alt="" coords="106,155,175,181"/>
+<area shape="rect" id="node5" href="$classCNpc.html" title=" " alt="" coords="18,229,74,256"/>
+<area shape="rect" id="node7" href="$classCPickable.html" title=" " alt="" coords="98,229,183,256"/>
+<area shape="rect" id="node8" href="$classCPlayer.html" title=" " alt="" coords="207,229,279,256"/>
+<area shape="rect" id="node6" href="$classCZombie.html" title=" " alt="" coords="5,304,87,331"/>
 </map>

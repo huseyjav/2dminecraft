@@ -1,11 +1,13 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
 <area shape="rect" id="node1" href="$classCAlive.html" title=" " alt="" coords="289,5,353,32"/>
-<area shape="rect" id="node2" href="$classCNpc.html" title=" " alt="" coords="412,5,468,32"/>
-<area shape="rect" id="node3" href="$classCPlayer.html" title=" " alt="" coords="404,56,476,83"/>
-<area shape="rect" id="node4" href="$classCRenderable.html" title=" " alt="" coords="5,132,111,159"/>
-<area shape="rect" id="node5" href="$classCHud.html" title=" " alt="" coords="170,107,227,133"/>
-<area shape="rect" id="node6" href="$classCPhyiscs.html" title=" " alt="" coords="159,56,239,83"/>
-<area shape="rect" id="node8" href="$classCTile.html" title=" " alt="" coords="171,157,226,184"/>
-<area shape="rect" id="node9" href="$classCWorld.html" title=" " alt="" coords="165,208,233,235"/>
-<area shape="rect" id="node7" href="$classCEntity.html" title=" " alt="" coords="287,56,356,83"/>
+<area shape="rect" id="node2" href="$classCNpc.html" title=" " alt="" coords="419,56,475,83"/>
+<area shape="rect" id="node4" href="$classCPlayer.html" title=" " alt="" coords="411,5,483,32"/>
+<area shape="rect" id="node3" href="$classCZombie.html" title=" " alt="" coords="537,56,619,83"/>
+<area shape="rect" id="node5" href="$classCRenderable.html" title=" " alt="" coords="5,132,111,159"/>
+<area shape="rect" id="node6" href="$classCHud.html" title=" " alt="" coords="170,107,227,133"/>
+<area shape="rect" id="node7" href="$classCPhyiscs.html" title=" " alt="" coords="159,56,239,83"/>
+<area shape="rect" id="node10" href="$classCTile.html" title=" " alt="" coords="171,157,226,184"/>
+<area shape="rect" id="node11" href="$classCWorld.html" title=" " alt="" coords="165,208,233,235"/>
+<area shape="rect" id="node8" href="$classCEntity.html" title=" " alt="" coords="287,56,356,83"/>
+<area shape="rect" id="node9" href="$classCPickable.html" title=" " alt="" coords="404,107,489,133"/>
 </map>

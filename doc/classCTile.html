@@ -83,16 +83,24 @@ Collaboration diagram for CTile:</div>
 <div class="dyncontent">
 <div class="center"><img src="classCTile__coll__graph.png" border="0" usemap="#aCTile_coll__map" alt="Collaboration graph"/></div>
 <map name="aCTile_coll__map" id="aCTile_coll__map">
-<area shape="rect" title=" " alt="" coords="31,80,85,107"/>
-<area shape="rect" href="classCRenderable.html" title=" " alt="" coords="5,5,111,32"/>
+<area shape="rect" title=" " alt="" coords="5,171,60,197"/>
+<area shape="rect" href="classCRenderable.html" title=" " alt="" coords="65,5,171,32"/>
+<area shape="rect" href="classCWorld.html" title=" " alt="" coords="84,81,152,108"/>
+<area shape="rect" href="classCPhyiscs.html" title=" " alt="" coords="155,171,235,197"/>
+<area shape="rect" href="classCPlayer.html" title=" " alt="" coords="157,336,229,363"/>
+<area shape="rect" href="classCEntity.html" title=" " alt="" coords="158,260,227,287"/>
+<area shape="rect" href="classCAlive.html" title=" " alt="" coords="251,260,315,287"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3dfad8602cc5873de64fe78728381ae8"><td class="memItemLeft" align="right" valign="top"><a id="a3dfad8602cc5873de64fe78728381ae8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CTile</b> (int type, int x, int y)</td></tr>
-<tr class="separator:a3dfad8602cc5873de64fe78728381ae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ca3078a7a80b01457dacdb6eb936f7b"><td class="memItemLeft" align="right" valign="top"><a id="a4ca3078a7a80b01457dacdb6eb936f7b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setblocktype</b> (tileID type)</td></tr>
+<tr class="separator:a4ca3078a7a80b01457dacdb6eb936f7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31666ed4746b72fd9e51df1bb020e081"><td class="memItemLeft" align="right" valign="top"><a id="a31666ed4746b72fd9e51df1bb020e081"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CTile</b> (tileID type, int x, int y, <a class="el" href="classCWorld.html">CWorld</a> *world)</td></tr>
+<tr class="separator:a31666ed4746b72fd9e51df1bb020e081"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a097879c05674652fae0c1cac82f1a092"><td class="memItemLeft" align="right" valign="top"><a id="a097879c05674652fae0c1cac82f1a092"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>render</b> (<a class="el" href="classCCameraRenderer.html">CCameraRenderer</a> *renderer) override</td></tr>
 <tr class="separator:a097879c05674652fae0c1cac82f1a092"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -102,9 +110,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isCollidable</b> ()</
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a753396ef591697af686fda6a81558e2f"><td class="memItemLeft" align="right" valign="top"><a id="a753396ef591697af686fda6a81558e2f"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
-<tr class="separator:a753396ef591697af686fda6a81558e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1ad2a89335e7337b70e70596016e01a"><td class="memItemLeft" align="right" valign="top"><a id="ac1ad2a89335e7337b70e70596016e01a"></a>
+tileID&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
+<tr class="separator:ac1ad2a89335e7337b70e70596016e01a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad518af82a9d74a0680d86355fec251cc"><td class="memItemLeft" align="right" valign="top"><a id="ad518af82a9d74a0680d86355fec251cc"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>x</b></td></tr>
 <tr class="separator:ad518af82a9d74a0680d86355fec251cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -117,6 +125,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>health</b> =100</td></
 <tr class="memitem:a3ba9e4116a8f3045587e4f1a073c5288"><td class="memItemLeft" align="right" valign="top"><a id="a3ba9e4116a8f3045587e4f1a073c5288"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>maxhealth</b> =100</td></tr>
 <tr class="separator:a3ba9e4116a8f3045587e4f1a073c5288"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af82ff4107d113e97177befeafb7fc7ed"><td class="memItemLeft" align="right" valign="top"><a id="af82ff4107d113e97177befeafb7fc7ed"></a>
+<a class="el" href="classCWorld.html">CWorld</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>world</b></td></tr>
+<tr class="separator:af82ff4107d113e97177befeafb7fc7ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="tile_8h_source.html">tile.h</a></li>

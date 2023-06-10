@@ -1,6 +1,6 @@
 #include "game.h"
 #include <iostream>
-
+#include "hostilenpc.h"
 //#include "utils.h"
 using namespace std;
 
@@ -17,7 +17,8 @@ CGame::CGame() : world(new CWorld(100, 20))
     camrednerer = new CCameraRenderer(window, renderer, world);
     assets = new CAssets(camrednerer);
     world->setplayer(localplayer);
-    world->worldnpcs.push_back(new CNpc(2000,800,90,195,7,world,localplayer));
+    world->worldnpcs.push_back(new CZombie(2000,800,90,195,7,world,localplayer));
+    //world->worldnpcs.push_back(new CNpc(2000,800,90,195,7,world,localplayer));
     camrednerer->assets = assets;
     //cout << "asd " << assets;
 }

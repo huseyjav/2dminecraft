@@ -10,8 +10,11 @@ var searchData=
   ['cmelee_7',['CMelee',['../classCMelee.html',1,'']]],
   ['cnpc_8',['CNpc',['../classCNpc.html',1,'']]],
   ['cphyiscs_9',['CPhyiscs',['../classCPhyiscs.html',1,'']]],
-  ['cplayer_10',['CPlayer',['../classCPlayer.html',1,'']]],
-  ['crenderable_11',['CRenderable',['../classCRenderable.html',1,'']]],
-  ['ctile_12',['CTile',['../classCTile.html',1,'']]],
-  ['cworld_13',['CWorld',['../classCWorld.html',1,'']]]
+  ['cpickable_10',['CPickable',['../classCPickable.html',1,'']]],
+  ['cplaceable_11',['CPlaceable',['../classCPlaceable.html',1,'']]],
+  ['cplayer_12',['CPlayer',['../classCPlayer.html',1,'']]],
+  ['crenderable_13',['CRenderable',['../classCRenderable.html',1,'']]],
+  ['ctile_14',['CTile',['../classCTile.html',1,'']]],
+  ['cworld_15',['CWorld',['../classCWorld.html',1,'']]],
+  ['czombie_16',['CZombie',['../classCZombie.html',1,'']]]
 ];

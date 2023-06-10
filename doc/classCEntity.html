@@ -74,11 +74,13 @@ Inheritance diagram for CEntity:</div>
 <div class="dyncontent">
 <div class="center"><img src="classCEntity__inherit__graph.png" border="0" usemap="#aCEntity_inherit__map" alt="Inheritance graph"/></div>
 <map name="aCEntity_inherit__map" id="aCEntity_inherit__map">
-<area shape="rect" title=" " alt="" coords="43,155,112,181"/>
-<area shape="rect" href="classCNpc.html" title=" " alt="" coords="5,229,61,256"/>
-<area shape="rect" href="classCPlayer.html" title=" " alt="" coords="85,229,157,256"/>
-<area shape="rect" href="classCPhyiscs.html" title=" " alt="" coords="37,80,117,107"/>
-<area shape="rect" href="classCRenderable.html" title=" " alt="" coords="25,5,130,32"/>
+<area shape="rect" title=" " alt="" coords="106,155,175,181"/>
+<area shape="rect" href="classCNpc.html" title=" " alt="" coords="18,229,74,256"/>
+<area shape="rect" href="classCPickable.html" title=" " alt="" coords="98,229,183,256"/>
+<area shape="rect" href="classCPlayer.html" title=" " alt="" coords="207,229,279,256"/>
+<area shape="rect" href="classCPhyiscs.html" title=" " alt="" coords="101,80,181,107"/>
+<area shape="rect" href="classCRenderable.html" title=" " alt="" coords="88,5,193,32"/>
+<area shape="rect" href="classCZombie.html" title=" " alt="" coords="5,304,87,331"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -86,13 +88,12 @@ Collaboration diagram for CEntity:</div>
 <div class="dyncontent">
 <div class="center"><img src="classCEntity__coll__graph.png" border="0" usemap="#aCEntity_coll__map" alt="Collaboration graph"/></div>
 <map name="aCEntity_coll__map" id="aCEntity_coll__map">
-<area shape="rect" title=" " alt="" coords="39,5,108,32"/>
-<area shape="rect" href="classCPlayer.html" title=" " alt="" coords="83,184,155,211"/>
-<area shape="rect" href="classCItem.html" title=" " alt="" coords="43,95,104,121"/>
-<area shape="rect" href="classCPhyiscs.html" title=" " alt="" coords="99,363,179,389"/>
-<area shape="rect" href="classCRenderable.html" title=" " alt="" coords="179,184,285,211"/>
-<area shape="rect" href="classCWorld.html" title=" " alt="" coords="105,273,173,300"/>
-<area shape="rect" href="classCAlive.html" title=" " alt="" coords="128,95,192,121"/>
+<area shape="rect" title=" " alt="" coords="5,5,75,32"/>
+<area shape="rect" href="classCPlayer.html" title=" " alt="" coords="77,81,149,108"/>
+<area shape="rect" href="classCPhyiscs.html" title=" " alt="" coords="93,260,173,287"/>
+<area shape="rect" href="classCRenderable.html" title=" " alt="" coords="174,81,279,108"/>
+<area shape="rect" href="classCWorld.html" title=" " alt="" coords="99,171,167,197"/>
+<area shape="rect" href="classCAlive.html" title=" " alt="" coords="99,5,163,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -101,6 +102,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a78110c6e4d9e18c6f2f21f2e31d3d859"><td class="memItemLeft" align="right" valign="top"><a id="a78110c6e4d9e18c6f2f21f2e31d3d859"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>CEntity</b> (int x, int y, int w, int h, int velocityX, <a class="el" href="classCWorld.html">CWorld</a> *world)</td></tr>
 <tr class="separator:a78110c6e4d9e18c6f2f21f2e31d3d859"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0834c25469675c6b5805ca44b04caa5f"><td class="memItemLeft" align="right" valign="top"><a id="a0834c25469675c6b5805ca44b04caa5f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CEntity</b> (entityID, int, int, int, int, int, <a class="el" href="classCWorld.html">CWorld</a> *)</td></tr>
+<tr class="separator:a0834c25469675c6b5805ca44b04caa5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16c88ebb252db558aa18e32c688b0bb1"><td class="memItemLeft" align="right" valign="top"><a id="a16c88ebb252db558aa18e32c688b0bb1"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
 <tr class="separator:a16c88ebb252db558aa18e32c688b0bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,6 +154,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>moveDownmax</b> ()</t
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:a6f5011436e0d6eed9c4e04bec7fda097"><td class="memItemLeft" align="right" valign="top"><a id="a6f5011436e0d6eed9c4e04bec7fda097"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>shouldberemoved</b> =false</td></tr>
+<tr class="separator:a6f5011436e0d6eed9c4e04bec7fda097"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c0b0ee98421b8b98168fe6b26288723"><td class="memItemLeft" align="right" valign="top"><a id="a3c0b0ee98421b8b98168fe6b26288723"></a>
 entityID&#160;</td><td class="memItemRight" valign="bottom"><b>id</b></td></tr>
 <tr class="separator:a3c0b0ee98421b8b98168fe6b26288723"><td class="memSeparator" colspan="2">&#160;</td></tr>

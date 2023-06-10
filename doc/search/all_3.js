@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['movewoffset_20',['movewOffset',['../classCPhyiscs.html#a6b34472bb66aa2e7d03c00434c879949',1,'CPhyiscs']]]
+  ['isempty_23',['isempty',['../classCWorld.html#a0156897b05b36283089ed27fd28521be',1,'CWorld']]],
+  ['iswithinlimitsofmap_24',['iswithinlimitsofmap',['../classCWorld.html#adc4b1624592fc122aee1a71d42657aec',1,'CWorld']]]
 ];
