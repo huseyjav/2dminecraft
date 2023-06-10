@@ -2,7 +2,7 @@
 #include "world.h"
 #include "entity.h"
 
-CMelee::CMelee(itemID id,CEntity* owner,int attackcooldown,int damage) : CItem(id,owner),damage(damage),attackcooldown(attackcooldown){
+CMelee::CMelee(itemID id,CEntity* owner,int attackcooldown,int damage) : CItem(id,owner,1),damage(damage),attackcooldown(attackcooldown){
 
 }
 

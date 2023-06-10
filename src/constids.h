@@ -26,3 +26,6 @@ entityID getentityID(itemID item);
 
 itemID getitemID(entityID entity);
 
+
+entityID getentityIDtile(tileID tile);
+

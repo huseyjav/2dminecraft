@@ -8,11 +8,12 @@ class CWorld;
 class CEntity;
 class CItem {
 public:
-    int stackcount;
+    
     itemID id;
     int lastusedtick;
     CEntity* owner;
-    CItem(itemID id, CEntity* owner,int stackcount);
+    int stackcount;
+    CItem(itemID id, CEntity* owner,int stackcount1);
     virtual void use(CWorld* world, vector2 clickpos)=0;
     //virtual CEntity* spawnentity()=0;
     virtual ~CItem() = default;

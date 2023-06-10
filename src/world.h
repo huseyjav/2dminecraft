@@ -24,6 +24,7 @@ public:
     float gravity;
     CPlayer* player;
     vector<CNpc*> worldnpcs;
+    vector<CEntity*> entities;
     int lastminedx=-1, lastminedy=-1;
     unsigned int lastminetick=0;
     CWorld(int w, int h);

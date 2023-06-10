@@ -3,22 +3,26 @@
 
 #include "SDL2/SDL.h"
 #include "utils.h"
-#include "renderer.h"
 #include "renderable.h"
 #include "assets.h"
-#define GRASS 1
-#define VOID 0
+#include "constids.h"
+// #define GRASS 1
+// #define VOID 0
 
 class CCameraRenderer;
+class CWorld;
+
 
 class CTile : public CRenderable{ // placeholder class for testing purposes
 public:
     //CAssets* assets;
-    int type;
+    //int type;
+    tileID type;
     int x,y;
     int health=100;
     int maxhealth=100;
-    CTile(int type,int x, int y);
+    CWorld* world;
+    CTile(tileID type,int x, int y,CWorld* world);
     void render(CCameraRenderer * renderer) override;
     bool isCollidable();
 };

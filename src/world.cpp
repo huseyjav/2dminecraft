@@ -2,21 +2,21 @@
 #include <iostream>
 #include "player.h"
 #include "game.h"
-
+#include "pickable.h"
 CWorld::CWorld(int w, int h){
     for(int i = 0 ; i < h;i++){
         vector<CTile> topushback;
         for(int j = 0 ; j<w;j++){
-            if(i<5) topushback.push_back(CTile(GRASS,j*100,i*100));
-            else topushback.push_back(CTile(VOID,j*100,i*100));
+            if(i<5) topushback.push_back(CTile(tileID::grass_id,j*100,i*100,this));
+            else topushback.push_back(CTile(tileID::void_id,j*100,i*100,this));
         }
         tiles.push_back(topushback);
     }
-    tiles.at(5).at(6).type = GRASS;
-    tiles.at(6).at(5).type = GRASS;
-    tiles.at(7).at(4).type = GRASS;
-    tiles.at(5).at(2).type = GRASS;
-    tiles.at(6).at(3).type = GRASS;
+    tiles.at(5).at(6).type = tileID::grass_id;
+    tiles.at(6).at(5).type = tileID::grass_id;
+    tiles.at(7).at(4).type = tileID::grass_id;
+    tiles.at(5).at(2).type = tileID::grass_id;
+    tiles.at(6).at(3).type = tileID::grass_id;
     //tiles.at(7).at(4).type = GRASS;
 }
 
@@ -34,6 +34,9 @@ void CWorld::render(CCameraRenderer * renderer){
     }
     player->render(renderer);
     for(auto i : worldnpcs){
+        i->render(renderer);
+    }
+    for(auto i : entities){
         i->render(renderer);
     }
 }
@@ -60,6 +63,9 @@ void CWorld::update(){
     if(worldnpcs.size()==0){
         worldnpcs.push_back(new CNpc(2000,800,90,195,7,this,player));
         //worldnpcs.push_back(new CNpc(0,800,90,195,7,this,player));
+    }
+    for(auto i : entities){
+        i->update();
     }
     //resetTilehealth();
 }
@@ -99,7 +105,9 @@ void CWorld::handleAttack(CItem* item, CEntity* owner, vector2 worldpoint){
             lastminetick = CGame::tick;
             tiles.at(i.y/100).at(i.x/100).health-=((CMelee*)item)->damage;
             if(tiles.at(i.y/100).at(i.x/100).health<=0){
-                tiles.at(i.y/100).at(i.x/100).type=VOID;
+                tileID temp = tiles.at(i.y/100).at(i.x/100).type;
+                tiles.at(i.y/100).at(i.x/100).type=tileID::void_id;
+                entities.push_back(new CPickable(getentityIDtile(temp),(i.x/100)*100+10 ,(i.y/100)*100+50,50,50,10,this,1));
             }
             return;
         }

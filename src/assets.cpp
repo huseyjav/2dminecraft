@@ -1,5 +1,6 @@
 #include "assets.h"
 #include <iostream>
+#include "renderer.h"
 using namespace std;
 
 CAssets::CAssets(CCameraRenderer* renderer){

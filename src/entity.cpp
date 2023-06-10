@@ -3,6 +3,9 @@
 CEntity::CEntity(int x, int y, int w, int h,int velocityX,CWorld* world) : CPhyiscs(x,y,w,h,velocityX,world){
 
 }
+CEntity::CEntity(entityID id,int x, int y, int w, int h,int velocityX, CWorld* world) : CPhyiscs(x,y,w,h,velocityX,world),id(id){
+
+}
 
 void CEntity::update(){
     setonGround();

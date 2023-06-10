@@ -4,7 +4,7 @@
 #include <iostream>
 
 using namespace std;
-CItem::CItem(itemID id, CEntity* owner,int stackcount=1) : id(id),owner(owner),stackcount(stackcount){
+CItem::CItem(itemID id, CEntity* owner,int stackcount1=1) : id(id),owner(owner),stackcount(stackcount1){
 
 }
 
