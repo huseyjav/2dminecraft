@@ -117,10 +117,12 @@ int CPlayer::stackitem(itemID id,int count){
         if(!i) continue;
         if(i->id!=id) continue;
         int howmanywecanadd = i->maxcount-i->currentcount;
+        cout << howmanywecanadd << endl;
         if(howmanywecanadd>=count){
             i->currentcount+=count;
             return count;
         }
+        else if(howmanywecanadd==0) continue;
         else if(howmanywecanadd<count){
             i->currentcount+=howmanywecanadd;
             return howmanywecanadd;

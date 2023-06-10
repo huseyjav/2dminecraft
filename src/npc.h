@@ -13,7 +13,7 @@ public:
     int oldy=0;
     bool targetwithinproximinity();
     CNpc(int x, int y, int w, int h, int velocityX,CWorld* world, CEntity* target);
-    
+    virtual entityID getitemdrop();
     virtual void render(CCameraRenderer * renderer) override;
     virtual void update() override;
     virtual ~CNpc() = default;

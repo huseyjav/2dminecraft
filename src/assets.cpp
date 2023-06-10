@@ -8,5 +8,6 @@ CAssets::CAssets(CCameraRenderer* renderer){
     player_sprite = IMG_LoadTexture(renderer->renderer,"src/resources/anim-sheet.png");
     fist = IMG_LoadTexture(renderer->renderer,"src/resources/fist1.png");
     sword = IMG_LoadTexture(renderer->renderer,"src/resources/sword.png");
+    meat = IMG_LoadTexture(renderer->renderer,"src/resources/meat.png");
     cout << fist << endl;
 }

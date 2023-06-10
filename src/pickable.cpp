@@ -54,7 +54,7 @@ SDL_Texture* getentTexture(CEntity* ent,CAssets* assets){
         case(entityID::dropped_pickaxe_id):
             return nullptr;
         case(entityID::dropped_meat_id):
-            return nullptr;
+            return assets->meat;
         case(entityID::dropped_grassblock_id):
             return assets->grassblock;
     }

@@ -55,9 +55,14 @@ void CWorld::update(){
     player->update();
     for(auto i = worldnpcs.begin() ; i!=worldnpcs.end();){
         if(!(*i)->alive){
+            entityID id = (*i)->getitemdrop();
+            int tempx=(*i)->x;
+            int tempy=(*i)->y;
+            int temph=(*i)->h;
+            int tempw=(*i)->w;
             delete *i;
             worldnpcs.erase(i);
-
+            entities.push_back ( new CPickable(id,tempx,tempy,50,50,10,this,1));
             continue;
         }
         else {

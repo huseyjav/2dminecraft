@@ -1,6 +1,6 @@
 #include "itemfactory.h"
 #include "placeable.h"
-
+#include "eatable.h"
 
 CItem* makeitem(itemID id){
     switch(id){
@@ -9,7 +9,7 @@ CItem* makeitem(itemID id){
         case itemID::grassblock_id:
             return new CPlaceable(itemID::grassblock_id,nullptr,64);
         case itemID::meat_id:
-            return nullptr;
+            return new CEatable(itemID::meat_id,nullptr,5,100,10);
         case itemID::pickaxe_id:
             return nullptr;
         case itemID::sword_id:

@@ -11,5 +11,6 @@ public:
     SDL_Texture* fist;
     SDL_Texture* player_sprite;
     SDL_Texture* sword;
+    SDL_Texture* meat;
     CAssets(CCameraRenderer* renderer);
 };

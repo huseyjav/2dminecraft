@@ -8,7 +8,6 @@ CZombie::CZombie(int x, int y, int w, int h, int velocityX,CWorld* world, CEntit
 
 
 void CZombie::update(){
-    CAlive* a = dynamic_cast<CAlive*>(target);
     if (targetwithinproximinity() && ((CPlayer*)target)->alive )
     {
         if(abs(x - target->x) < 200){

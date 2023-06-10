@@ -58,3 +58,8 @@ bool CNpc::targetwithinproximinity()
         return true;
     return false;
 }
+
+
+entityID CNpc::getitemdrop(){
+    return entityID::dropped_meat_id;
+}

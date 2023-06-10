@@ -17,7 +17,7 @@ SDL_Texture* getTexture(itemID id,CAssets* assets){
         case itemID::grassblock_id:
             return assets->grassblock;
         case itemID::meat_id:
-            return nullptr;
+            return assets->meat;
         case itemID::pickaxe_id:
             return nullptr;
         case itemID::sword_id:
