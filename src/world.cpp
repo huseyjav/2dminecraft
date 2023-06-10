@@ -117,6 +117,7 @@ void CWorld::handleAttack(CItem* item, CEntity* owner, vector2 worldpoint){
     //extra calculation is to set eyepos 
     vector<vector2> a = bresenhamalgo(vector2{owner->x+owner->w/2,owner->y+(int)((double)owner->h*0.9)},worldpoint);
     for(auto i : a){
+        if(!iswithinlimitsofmap(i.x,i.y)) continue;
         if(tiles.at(i.y/100).at(i.x/100).isCollidable()){
             lastminedx=i.x/100;
             lastminedy=i.y/100;
@@ -188,9 +189,17 @@ bool CWorld::isempty(int x, int y){
 }
 
 bool CWorld::placeblock(tileID toplace,vector2 worldpoint){
-    if(isempty(worldpoint.x/100,worldpoint.y/100)  && tiles.at(worldpoint.y/100).at(worldpoint.x/100).type==tileID::void_id) {
+    if(iswithinlimitsofmap(worldpoint.x,worldpoint.y) && isempty(worldpoint.x/100,worldpoint.y/100)  && tiles.at(worldpoint.y/100).at(worldpoint.x/100).type==tileID::void_id) {
         tiles.at(worldpoint.y/100).at(worldpoint.x/100).setblocktype(toplace);
         return true;
     }
     return false;
+}
+
+
+bool CWorld::iswithinlimitsofmap(int x, int y){
+    if(x<0 || y<0) return false;
+    if(y > 100 * tiles.size()) return false;
+    if(x > 100 * tiles.at(0).size()) return false;
+    return true;
 }

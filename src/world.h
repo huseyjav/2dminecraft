@@ -52,6 +52,15 @@ public:
      * @return false 
      */
     bool isempty(int x, int y);
+    /**
+     * @brief checks if given x,y is without bounds of the current map
+     * 
+     * @param x 
+     * @param y 
+     * @return true 
+     * @return false 
+     */
+    bool iswithinlimitsofmap(int x, int y);
     bool placeblock(tileID toplace,vector2 worldpoint);
     
     bool lastframekleftclick = false;
