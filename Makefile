@@ -81,6 +81,6 @@ compile: $(OBJS)
 
 clean:
 	rm -rf $(BUILD_DIR)
-
+	rm huseyjav
 doc:
 	doxygen Doxyfile

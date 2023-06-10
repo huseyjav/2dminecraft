@@ -24,6 +24,9 @@ CWorld::~CWorld(){
     for(auto i : worldnpcs){
         delete i;
     }
+    for(auto i : entities){
+        delete i;
+    }
 }
 
 void CWorld::render(CCameraRenderer * renderer){
@@ -39,6 +42,7 @@ void CWorld::render(CCameraRenderer * renderer){
     for(auto i : entities){
         i->render(renderer);
     }
+
 }
 
 
@@ -150,8 +154,41 @@ void CWorld::resetTilehealth(){
     }
 }
 
+bool CWorld::isempty(int x, int y){
+    SDL_Rect a;
+    SDL_Rect b;
+
+    a.x = x*100;
+    a.y = y*100;
+    a.h = 100;
+    a.w = 100;
+
+    b.x = player->x;
+    b.y = player->y;
+    b.h = player->h;
+    b.w = player->w;
+
+    if(SDL_HasIntersection(&a,&b)) return false;
+
+    for(auto i : worldnpcs){
+        b.x = i->x;
+        b.y = i->y;
+        b.h = i->h;
+        b.w = i->w;
+        if(SDL_HasIntersection(&a,&b)) return false;
+    }
+    for(auto i : entities){
+        b.x = i->x;
+        b.y = i->y;
+        b.h = i->h;
+        b.w = i->w;
+        if(SDL_HasIntersection(&a,&b)) return false;
+    }
+    return true;
+}
+
 bool CWorld::placeblock(tileID toplace,vector2 worldpoint){
-    if(tiles.at(worldpoint.y/100).at(worldpoint.x/100).type==tileID::void_id) {
+    if(isempty(worldpoint.x/100,worldpoint.y/100)  && tiles.at(worldpoint.y/100).at(worldpoint.x/100).type==tileID::void_id) {
         tiles.at(worldpoint.y/100).at(worldpoint.x/100).setblocktype(toplace);
         return true;
     }

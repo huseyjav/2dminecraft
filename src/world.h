@@ -43,7 +43,17 @@ public:
      * @param worldpoint where the attack was at relative to world
      */
     void handleAttack(CItem* item, CEntity* owner, vector2 worldpoint);
+    /**
+     * @brief returns whether some entity is on a void block or not 
+     * 
+     * @param x index of the block on x axis
+     * @param y index of the block on y axis
+     * @return true 
+     * @return false 
+     */
+    bool isempty(int x, int y);
     bool placeblock(tileID toplace,vector2 worldpoint);
+    
     bool lastframekleftclick = false;
     int tickoflastclick = 0;
     int lastclickedtilex=0;

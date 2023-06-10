@@ -95,7 +95,10 @@ void CPlayer::useactiveitem(vector2 worldpos){
 }
 
 CPlayer::~CPlayer(){
-    //delete activeitem;
+    for(auto i : hotbar){
+        if(!i) continue;
+        delete i;
+    }
 }
 
 

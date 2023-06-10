@@ -31,7 +31,7 @@ void CTile::render(CCameraRenderer * renderer){
         SDL_SetRenderDrawBlendMode(renderer->renderer,SDL_BLENDMODE_BLEND);
 
         //cout << health << endl;
-        SDL_SetRenderDrawColor(renderer->renderer, 0, 0, 0, ((100-health)*255)/100   );
+        SDL_SetRenderDrawColor(renderer->renderer, 0, 0, 0, ((100-health)*255)/100);
         SDL_RenderFillRect(renderer->renderer,&rect);
 
         SDL_SetRenderDrawBlendMode(renderer->renderer,SDL_BLENDMODE_NONE);
