@@ -9,8 +9,10 @@ using namespace std;
 CPlayer::CPlayer(int x, int y, int w, int h, int velocityX,CWorld* world): CEntity(x,y,w,h,velocityX,world),hotbar(6,nullptr){
     hotbar.at(0) = makeitem(itemID::emptyhand_id);
     hotbar.at(1) = makeitem(itemID::sword_id);
+    hotbar.at(2) = makeitem(itemID::grassblock_id);
     hotbar.at(0)->owner=this;
     hotbar.at(1)->owner=this;
+    hotbar.at(2)->owner=this;
 }
 
 
@@ -86,6 +88,10 @@ void CPlayer::render(CCameraRenderer* camrenderer){
 void CPlayer::useactiveitem(vector2 worldpos){
     if(!hotbar[activeitem]) return;
     hotbar[activeitem]->use(world,worldpos);
+    if(hotbar[activeitem]->currentcount<=0){
+        delete hotbar[activeitem];
+        hotbar[activeitem]=nullptr;
+    }
 }
 
 CPlayer::~CPlayer(){
@@ -98,4 +104,31 @@ void CPlayer::setactiveitem(int slot){
     if(slot>hotbar.size() || slot<1) return;
     if(!hotbar[slot-1]) return;
     activeitem=slot-1;
+}
+
+int CPlayer::stackitem(itemID id,int count){
+    // cout << count << endl;
+    // cout << hotbar[2]->currentcount << endl;
+    for(auto i : hotbar){
+        if(!i) continue;
+        if(i->id!=id) continue;
+        int howmanywecanadd = i->maxcount-i->currentcount;
+        if(howmanywecanadd>=count){
+            i->currentcount+=count;
+            return count;
+        }
+        else if(howmanywecanadd<count){
+            i->currentcount+=howmanywecanadd;
+            return howmanywecanadd;
+        }
+    }
+    for(int i = 0 ; i<hotbar.size();i++){
+        if(hotbar[i]) continue;
+        hotbar[i]=makeitem(id);
+        hotbar[i]->owner=this;
+        hotbar[i]->currentcount=count;
+        return count;
+    }
+    
+    return 0;
 }

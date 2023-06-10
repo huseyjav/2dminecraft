@@ -43,6 +43,7 @@ public:
      * @param worldpoint where the attack was at relative to world
      */
     void handleAttack(CItem* item, CEntity* owner, vector2 worldpoint);
+    bool placeblock(tileID toplace,vector2 worldpoint);
     bool lastframekleftclick = false;
     int tickoflastclick = 0;
     int lastclickedtilex=0;

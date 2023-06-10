@@ -1,5 +1,5 @@
 #include "itemfactory.h"
-
+#include "placeable.h"
 
 
 CItem* makeitem(itemID id){
@@ -7,7 +7,7 @@ CItem* makeitem(itemID id){
         case itemID::emptyhand_id:
             return new CMelee(itemID::emptyhand_id,nullptr,300,10);
         case itemID::grassblock_id:
-            return nullptr;
+            return new CPlaceable(itemID::grassblock_id,nullptr,64);
         case itemID::meat_id:
             return nullptr;
         case itemID::pickaxe_id:

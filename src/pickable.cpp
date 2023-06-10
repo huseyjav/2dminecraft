@@ -22,7 +22,8 @@ void CPickable::update(){
     b.h = world->player->h;
 
     if(SDL_HasIntersection(&a,&b)){
-        cout << "asdas" << endl;
+        stackcount-=world->player->stackitem(getitemID(id),stackcount);
+        if(stackcount<=0) shouldberemoved=true;
     }
     CEntity::update();    
 }

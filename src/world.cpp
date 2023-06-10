@@ -64,9 +64,23 @@ void CWorld::update(){
         worldnpcs.push_back(new CNpc(2000,800,90,195,7,this,player));
         //worldnpcs.push_back(new CNpc(0,800,90,195,7,this,player));
     }
-    for(auto i : entities){
-        i->update();
+    // for(auto i : entities){
+    //     i->update();
+    // }
+
+    for(auto i = entities.begin() ; i!=entities.end();){
+        if((*i)->shouldberemoved){
+            delete *i;
+            entities.erase(i);
+
+            continue;
+        }
+        else {
+            (*i)->update();
+        }
+        i++;
     }
+
     //resetTilehealth();
 }
 
@@ -134,4 +148,12 @@ void CWorld::resetTilehealth(){
     if(CGame::tick!=lastminetick && lastminedx>=0 && lastminedy>=0){
         //tiles.at(lastminedy).at(lastminedx).health = tiles.at(lastminedy).at(lastminedx).maxhealth;
     }
+}
+
+bool CWorld::placeblock(tileID toplace,vector2 worldpoint){
+    if(tiles.at(worldpoint.y/100).at(worldpoint.x/100).type==tileID::void_id) {
+        tiles.at(worldpoint.y/100).at(worldpoint.x/100).setblocktype(toplace);
+        return true;
+    }
+    return false;
 }

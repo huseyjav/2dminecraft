@@ -12,7 +12,8 @@ public:
     itemID id;
     int lastusedtick;
     CEntity* owner;
-    int stackcount;
+    int currentcount=1;
+    int maxcount;
     CItem(itemID id, CEntity* owner,int stackcount1);
     virtual void use(CWorld* world, vector2 clickpos)=0;
     //virtual CEntity* spawnentity()=0;

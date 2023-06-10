@@ -22,6 +22,7 @@ public:
     int health=100;
     int maxhealth=100;
     CWorld* world;
+    void setblocktype(tileID type);
     CTile(tileID type,int x, int y,CWorld* world);
     void render(CCameraRenderer * renderer) override;
     bool isCollidable();

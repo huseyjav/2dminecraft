@@ -4,7 +4,7 @@
 #include <iostream>
 
 using namespace std;
-CItem::CItem(itemID id, CEntity* owner,int stackcount1=1) : id(id),owner(owner),stackcount(stackcount1){
+CItem::CItem(itemID id, CEntity* owner,int stackcount1=1) : id(id),owner(owner),maxcount(stackcount1){
 
 }
 
@@ -15,7 +15,7 @@ SDL_Texture* getTexture(itemID id,CAssets* assets){
         case itemID::emptyhand_id:
             return assets->fist;
         case itemID::grassblock_id:
-            return nullptr;
+            return assets->grassblock;
         case itemID::meat_id:
             return nullptr;
         case itemID::pickaxe_id:

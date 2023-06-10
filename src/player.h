@@ -27,5 +27,6 @@ public:
     void useactiveitem(vector2 worldpos);
     void respawn();
     void setactiveitem(int slot);
+    int stackitem(itemID id,int count);
     virtual ~CPlayer();
 };

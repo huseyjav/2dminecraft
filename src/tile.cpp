@@ -36,9 +36,20 @@ void CTile::render(CCameraRenderer * renderer){
 
         SDL_SetRenderDrawBlendMode(renderer->renderer,SDL_BLENDMODE_NONE);
     }
+    
 }
 
 bool CTile::isCollidable(){
     return type!=tileID::void_id;
 }
 
+
+void CTile::setblocktype(tileID type){
+    this->type=type;
+    switch(type){
+        case tileID::grass_id:
+            maxhealth=100;
+            health=100;
+            break;
+    }
+}
