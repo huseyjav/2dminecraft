@@ -1,7 +1,7 @@
 #include "hostilenpc.h"
 #include "itemfactory.h"
 #include "player.h"
-CZombie::CZombie(int x, int y, int w, int h, int velocityX,CWorld* world, CEntity* target): CNpc(x, y, w, h, velocityX, world,target){
+CZombie::CZombie(int x, int y, int w, int h, int velocityX,CWorld* world, CEntity* target): CNpc(x, y, w, h, velocityX, world,target,entityID::zombiewithsword_id){
     sword = makeitem(itemID::emptyhand_id);
     sword->owner = this;
 }

@@ -4,7 +4,24 @@
 #include "game.h"
 #include "pickable.h"
 #include "hostilenpc.h"
+#include "fstream"
+std::vector<std::vector<CTile>> LoadTilesFromFile(ifstream& is) {
+    int numRows, numCols;
+    is.read(reinterpret_cast<char*>(&numRows), sizeof(int));
+    is.read(reinterpret_cast<char*>(&numCols), sizeof(int));
+
+    std::vector<std::vector<CTile>> loadedTiles(numRows, std::vector<CTile>(numCols));
+
+    for (auto& row : loadedTiles) {
+        for (auto& tile : row) {
+            is.read(reinterpret_cast<char*>(&tile), sizeof(CTile));
+        }
+    }
+
+    return loadedTiles;
+}
 CWorld::CWorld(int w, int h){
+    //tiles = LoadTilesFromFile("tiles.sav"); 
     for(int i = 0 ; i < h;i++){
         vector<CTile> topushback;
         for(int j = 0 ; j<w;j++){
@@ -19,6 +36,10 @@ CWorld::CWorld(int w, int h){
     tiles.at(5).at(2).type = tileID::grass_id;
     tiles.at(6).at(3).type = tileID::grass_id;
     //tiles.at(7).at(4).type = GRASS;
+}
+
+CWorld::CWorld(ifstream& is){
+    tiles = LoadTilesFromFile(is);
 }
 
 CWorld::~CWorld(){

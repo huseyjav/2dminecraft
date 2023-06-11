@@ -7,7 +7,7 @@
 
 #include "renderer.h"
 #include "renderable.h"
-
+#include "helperstructs.h"
 class CWorld;
 
 
@@ -19,7 +19,7 @@ public:
     int oldx=0,oldy=0;
     // collidable widht, height in world
     int w,h;
-    int isorientationleft = false;
+    bool isorientationleft = false;
     int velocityX;
     int velocityY;
     CWorld* world;
@@ -28,9 +28,10 @@ public:
     int timeinair; // time in air in milliseconds
     int howmanypixels = 0 ; // how far object fell from sky (used for fall damage)
     CPhyiscs(int x, int y, int w, int h,int velocityX,CWorld* world);
+    CPhyiscs(physicsread physics, CWorld* world);
     virtual void render(CCameraRenderer * renderer) override;
 
-
+    physicsread getphysicsread();
 
     void setonGround();
     /**

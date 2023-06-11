@@ -7,6 +7,7 @@
 #include "entity.h"
 #include "aliveent.h"
 #include "melee.h"
+#include "helperstructs.h"
 class CWorld;
 
 class CPlayer : public CEntity, public CAlive{
@@ -24,6 +25,10 @@ public:
     void update() override; // override update to decrease health on fall etc
     virtual void render(CCameraRenderer* camrenderer);
     CPlayer(int x, int y, int w, int h, int velocityX ,CWorld* world);
+    CPlayer(playerread& oldstate,CWorld* world);
+
+    playerread getplayerread();
+
     void useactiveitem(vector2 worldpos);
     void respawn();
     void setactiveitem(int slot);

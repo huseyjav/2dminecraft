@@ -13,7 +13,8 @@ enum entityID{
     dropped_sword_id,
     dropped_pickaxe_id,
     dropped_meat_id,
-    dropped_grassblock_id
+    dropped_grassblock_id,
+    freenpc
 };
 
 enum tileID{

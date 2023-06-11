@@ -7,6 +7,28 @@ CPhyiscs::CPhyiscs(int x, int y, int w, int h,int velocityX,CWorld* world) : x(x
 
 }
 
+CPhyiscs::CPhyiscs(physicsread physics, CWorld* world) : x(physics.x),y(physics.y),oldx(physics.oldx),oldy(physics.oldy),w(physics.w),h(physics.h),isorientationleft(physics.isorientationleft),velocityX(physics.velocityx),velocityY(physics.velocityy),world(world),onGround(physics.onGround),jumping(physics.jumping),timeinair(physics.timeinair),howmanypixels(physics.howmanypixels){
+
+}
+
+physicsread CPhyiscs::getphysicsread(){
+    physicsread toret;
+    toret.x = x;
+    toret.y = y;
+    toret.oldx = oldx;
+    toret.oldy = oldy;
+    toret.w = w;
+    toret.h = h;
+    toret.isorientationleft = isorientationleft;
+    toret.velocityx = velocityX;
+    toret.velocityy = velocityY;
+    toret.onGround = onGround;
+    toret.jumping = jumping;
+    toret.timeinair = timeinair;
+    toret.howmanypixels = howmanypixels;
+    return toret;
+}
+
 void CPhyiscs::render(CCameraRenderer* renderer){
     //cout << x << " " << y << "\n";
     //

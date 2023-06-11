@@ -15,7 +15,7 @@ public:
     SDL_Event events;
     bool isRunning=true;
     int state=0;
-    CWorld* world;
+    CWorld* world=nullptr;
     static unsigned int tick;
     SDL_Window* window = nullptr;
     SDL_Renderer* renderer = nullptr;
@@ -23,7 +23,10 @@ public:
     CPlayer* localplayer = nullptr;
     CHud* hud=nullptr;
     CAssets* assets=nullptr;
+    const char* filename=nullptr;
     CGame();
+    CGame(const char* savefile);
+    void writesavefile();
     void loop();
     void handleinputs();
     

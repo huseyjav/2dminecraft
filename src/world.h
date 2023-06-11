@@ -28,6 +28,7 @@ public:
     int lastminedx=-1, lastminedy=-1;
     unsigned int lastminetick=0;
     CWorld(int w, int h);
+    CWorld(ifstream& is);
     virtual ~CWorld();
     void setplayer(CPlayer* pl);
     void render(CCameraRenderer * renderer) override;

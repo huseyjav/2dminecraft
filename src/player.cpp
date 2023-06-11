@@ -15,8 +15,18 @@ CPlayer::CPlayer(int x, int y, int w, int h, int velocityX,CWorld* world): CEnti
     hotbar.at(2)->owner=this;
 }
 
+CPlayer::CPlayer(playerread& oldstate,CWorld* world): CEntity(oldstate.entity,world),CAlive(oldstate.alive) ,respawnx(oldstate.respawnx),respawny(oldstate.respawny),activeitem(oldstate.activeitem) ,hotbar(6,nullptr){
 
-
+}
+playerread CPlayer::getplayerread(){
+    playerread toret;
+    toret.entity = getentityread();
+    toret.alive = getaliveread();
+    toret.respawnx = respawnx;
+    toret.respawny = respawny;
+    toret.activeitem = activeitem;
+    return toret;
+}
 
 void CPlayer::update(){
     setonGround();
@@ -104,7 +114,6 @@ CPlayer::~CPlayer(){
 
 
 void CPlayer::setactiveitem(int slot){
-    //cout << " asdasd" << endl;
     if(slot>hotbar.size() || slot<1) return;
     if(!hotbar[slot-1]) return;
     activeitem=slot-1;

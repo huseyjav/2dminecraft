@@ -26,8 +26,12 @@ void CNpc::update()
     CEntity::update();
 }
 
-CNpc::CNpc(int x, int y, int w, int h, int velocityX, CWorld *world, CEntity *target) : CEntity(x, y, w, h, velocityX, world), target(target)
+CNpc::CNpc(int x, int y, int w, int h, int velocityX, CWorld *world, CEntity *target) : CEntity(entityID::freenpc,x, y, w, h, velocityX, world), target(target)
 {
+}
+
+CNpc::CNpc(int x, int y, int w, int h, int velocityX,CWorld* world, CEntity* target,entityID id) : CEntity(id,x, y, w, h, velocityX, world), target(target) {
+
 }
 
 void CNpc::render(CCameraRenderer *camrenderer)

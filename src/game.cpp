@@ -1,16 +1,35 @@
 #include "game.h"
 #include <iostream>
 #include "hostilenpc.h"
+#include "fstream"
+#include "helperstructs.h"
 //#include "utils.h"
 using namespace std;
 
+void SaveTilesToFile(ofstream & os, const std::vector<std::vector<CTile>>& tiles) {
+    //std::ofstream outputFile(filename, std::ios::binary);
+
+    int numRows = tiles.size();
+    int numCols = (numRows > 0) ? tiles[0].size() : 0;
+    os.write(reinterpret_cast<const char*>(&numRows), sizeof(int));
+    os.write(reinterpret_cast<const char*>(&numCols), sizeof(int));
+
+    for (const auto& row : tiles) {
+        for (const auto& tile : row) {
+            os.write(reinterpret_cast<const char*>(&tile), sizeof(CTile));
+        }
+    }
+
+}
 
 
-CGame::CGame() : world(new CWorld(100, 20))
+
+CGame::CGame() 
 {
     //tick=0;
     // spawn player in middle of world
     // set camera to render
+    world = new CWorld(100, 20);
     localplayer = new CPlayer(603, 600, 70, 195,10, world);
     hud = new CHud(localplayer);
     SDL_CreateWindowAndRenderer(1500, 1000, 0, &window, &renderer);
@@ -21,6 +40,44 @@ CGame::CGame() : world(new CWorld(100, 20))
     //world->worldnpcs.push_back(new CNpc(2000,800,90,195,7,world,localplayer));
     camrednerer->assets = assets;
     //cout << "asd " << assets;
+}
+
+CGame::CGame(const char* savefile){
+    filename = savefile;
+    auto is = ifstream(filename,ios_base::binary);
+    if(!is){
+        world = new CWorld(100,20);
+        localplayer = new CPlayer(603, 600, 70, 195,10, world);
+    }
+    else{
+        world= new CWorld(is);
+        playerread playerdata;
+        is.read(reinterpret_cast<char*>(&playerdata),sizeof(playerread));
+        localplayer = new CPlayer(playerdata,world);
+    }
+    hud = new CHud(localplayer);
+    SDL_CreateWindowAndRenderer(1500, 1000, 0, &window, &renderer);
+    camrednerer = new CCameraRenderer(window, renderer, world);
+    assets = new CAssets(camrednerer);
+    world->setplayer(localplayer);
+
+    camrednerer->assets = assets;
+
+    is.close();
+}
+
+void CGame::writesavefile(){
+    cout << " here" << endl;
+    ofstream os(filename,ios_base::binary);
+    cout << " here" << endl;
+    SaveTilesToFile(os,world->tiles);
+    cout << " here" << endl;
+    playerread a = localplayer->getplayerread();
+    cout << " here" << endl;
+    cout << sizeof(playerread) << " " << sizeof(a) << endl;
+    os.write(reinterpret_cast<char*>(&a),sizeof(a));
+
+    os.close();
 }
 
 void CGame::loop()
@@ -63,6 +120,7 @@ void CGame::handleinputs()
     {
         if (events.type == SDL_QUIT)
         {
+            writesavefile();
             isRunning = false;
         }
         if(events.type == SDL_KEYDOWN)

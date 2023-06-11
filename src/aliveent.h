@@ -1,5 +1,7 @@
 #pragma once
 
+#include "helperstructs.h"
+
 
 class CAlive{
 public:
@@ -8,4 +10,8 @@ public:
     bool alive=true;
     bool hurtanim=false;
     void hurt(int damage);
+    CAlive()=default;
+    CAlive(aliveread& a);
+
+    aliveread getaliveread();
 };

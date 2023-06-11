@@ -8,11 +8,16 @@ using namespace std;
 unsigned int CGame::tick = 0;
 
 
-int main()
+int main(int argc, char *argv[])
 {
-	
-	CGame game;
-	game.loop();
+	if(argc==1){
+		CGame game;
+		game.loop();
+	}
+	else if(argc==2){
+		CGame game(argv[1]);
+		game.loop();
+	}
 
 
 	
