@@ -3,6 +3,7 @@
 #include "hostilenpc.h"
 #include "fstream"
 #include "helperstructs.h"
+#include "itemfactory.h"
 //#include "utils.h"
 using namespace std;
 
@@ -54,7 +55,19 @@ CGame::CGame(const char* savefile){
         playerread playerdata;
         is.read(reinterpret_cast<char*>(&playerdata),sizeof(playerread));
         localplayer = new CPlayer(playerdata,world);
+        for(int i = 0 ;  i < localplayer->hotbar.size();i++){
+            //cout << i << endl;
+            bool exists;
+            is.read(reinterpret_cast<char*>(&exists),sizeof(bool));
+            if(!exists) continue;
+
+            localplayer->hotbar[i] = extractfromfile(is);
+            localplayer->hotbar[i]->owner = localplayer;
+        }
     }
+
+
+
     hud = new CHud(localplayer);
     SDL_CreateWindowAndRenderer(1500, 1000, 0, &window, &renderer);
     camrednerer = new CCameraRenderer(window, renderer, world);
@@ -62,20 +75,29 @@ CGame::CGame(const char* savefile){
     world->setplayer(localplayer);
 
     camrednerer->assets = assets;
-
+    
     is.close();
 }
 
 void CGame::writesavefile(){
-    cout << " here" << endl;
     ofstream os(filename,ios_base::binary);
-    cout << " here" << endl;
     SaveTilesToFile(os,world->tiles);
-    cout << " here" << endl;
     playerread a = localplayer->getplayerread();
-    cout << " here" << endl;
-    cout << sizeof(playerread) << " " << sizeof(a) << endl;
+
+
     os.write(reinterpret_cast<char*>(&a),sizeof(a));
+
+    // write hotbar
+    for(int i = 0 ; i < localplayer->hotbar.size() ; i ++){
+        bool exists=true;
+        if(!localplayer->hotbar[i]){
+            exists=false;
+            os.write(reinterpret_cast<char*>(&exists),sizeof(bool));
+            continue;
+        }
+        os.write(reinterpret_cast<char*>(&exists),sizeof(bool));
+        localplayer->hotbar[i]->savetofile(os);
+    }
 
     os.close();
 }

@@ -30,3 +30,8 @@ void CEntity::update(){
     }
 
 }
+
+
+void CEntity::savetofile(ostream & os){
+    
+}

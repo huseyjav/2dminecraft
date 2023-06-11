@@ -38,3 +38,26 @@ struct playerread{
     int respawny;
     int activeitem;  
 };
+
+
+struct itemread{
+    itemID id;
+    int currentcount;
+    int maxcount;
+};
+
+struct meleeread{
+    itemread item;
+    int damage;
+    unsigned int attackcooldown;
+};
+
+struct placeableread{
+    itemread item;
+};
+
+struct eatableread{
+    itemread item;
+    unsigned int eatcooldown;
+    int healthboost;
+};

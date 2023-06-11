@@ -8,7 +8,17 @@ CItem::CItem(itemID id, CEntity* owner,int stackcount1=1) : id(id),owner(owner),
 
 }
 
+CItem::CItem(itemread read) :  id(read.id),currentcount(read.currentcount),maxcount(read.maxcount){
 
+}
+
+itemread CItem::getitemread(){
+    itemread toret;
+    toret.currentcount = currentcount;
+    toret.id = id;
+    toret.maxcount = maxcount;
+    return toret;
+}
 
 SDL_Texture* getTexture(itemID id,CAssets* assets){
     switch(id){
@@ -25,4 +35,8 @@ SDL_Texture* getTexture(itemID id,CAssets* assets){
         default:
             return nullptr;
     }
+}
+
+void CItem::savetofile(ostream & os){
+    
 }

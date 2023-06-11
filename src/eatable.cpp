@@ -14,3 +14,20 @@ void CEatable::use(CWorld* world,vector2 clickpos){
     currentcount--;
     lastused = SDL_GetTicks();
 }
+
+CEatable::CEatable(eatableread read) : CItem(read.item), eatcooldown(read.eatcooldown),healthboost(read.healthboost){
+
+}
+
+eatableread CEatable::geteatableread(){
+    eatableread toret;
+    toret.item = getitemread();
+    toret.healthboost = healthboost;
+    toret.eatcooldown = eatcooldown;
+    return toret;
+}
+void CEatable::savetofile(ostream & os){
+    os.write(reinterpret_cast<char*>(&id),sizeof(itemID));
+    eatableread towrite = geteatableread();
+    os.write(reinterpret_cast<char*>(&towrite),sizeof(eatableread));
+}

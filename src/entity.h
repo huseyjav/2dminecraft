@@ -3,6 +3,8 @@
 //#include "world.h"
 #include "constids.h"
 #include "helperstructs.h"
+#include <fstream>
+using namespace std;
 class CWorld;
 
 class CEntity : public CPhyiscs{
@@ -15,6 +17,8 @@ public:
     CEntity(entityread entity,CWorld* world);
     
     entityread getentityread();
+
+    virtual void savetofile(ostream & os);
 
     virtual void update();
 
