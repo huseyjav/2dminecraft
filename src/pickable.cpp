@@ -5,7 +5,23 @@
 CPickable::CPickable(entityID id,int x, int y, int w, int h,int velocityX,CWorld* world,int stackcount):CEntity(id,x,y,w,h,velocityX,world),stackcount(stackcount){
 
 }
+CPickable::CPickable(pickableread a,CWorld* world) : CEntity(a.entity,world),stackcount(a.stackcount){
 
+}
+
+pickableread CPickable::getpickablread(){
+    pickableread retval;
+    retval.entity = getentityread();
+    retval.stackcount = stackcount;
+    return retval;
+}
+
+
+void CPickable::savetofile(ostream & os) {
+    os.write(reinterpret_cast<char*>(&id),sizeof(entityID));
+    pickableread towrite = getpickablread();
+    os.write(reinterpret_cast<char*>(&towrite),sizeof(pickableread));
+}
 
 void CPickable::update(){
 

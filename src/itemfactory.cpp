@@ -1,7 +1,7 @@
 #include "itemfactory.h"
 #include "placeable.h"
 #include "eatable.h"
-
+#include "pickable.h"
 using namespace std;
 
 CItem* makeitem(itemID id){
@@ -46,5 +46,20 @@ CItem* extractfromfile(ifstream & is){
 
     }
     cout << "aaaaaaaaaa" << endl;
+    return nullptr;
+}
+
+CEntity* extractentityfromfile(ifstream& is,CWorld* world){
+    entityID id;
+    is.read(reinterpret_cast<char*>(&id),sizeof(entityID));
+    
+    if(id==entityID::dropped_grassblock_id || id==entityID::dropped_meat_id 
+    || id==entityID::dropped_pickaxe_id ||    id==entityID::dropped_sword_id){
+        pickableread extracted;
+        is.read(reinterpret_cast<char*>(&extracted),sizeof(pickableread));
+        return new CPickable(extracted,world);
+    }
+
+
     return nullptr;
 }

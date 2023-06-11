@@ -56,7 +56,6 @@ CGame::CGame(const char* savefile){
         is.read(reinterpret_cast<char*>(&playerdata),sizeof(playerread));
         localplayer = new CPlayer(playerdata,world);
         for(int i = 0 ;  i < localplayer->hotbar.size();i++){
-            //cout << i << endl;
             bool exists;
             is.read(reinterpret_cast<char*>(&exists),sizeof(bool));
             if(!exists) continue;
@@ -76,18 +75,20 @@ CGame::CGame(const char* savefile){
 
     camrednerer->assets = assets;
     
+    while(is.peek()!=EOF){
+        world->entities.push_back(extractentityfromfile(is,world));
+    }
+
+
     is.close();
 }
 
 void CGame::writesavefile(){
     ofstream os(filename,ios_base::binary);
+    if(!os) return;
     SaveTilesToFile(os,world->tiles);
     playerread a = localplayer->getplayerread();
-
-
     os.write(reinterpret_cast<char*>(&a),sizeof(a));
-
-    // write hotbar
     for(int i = 0 ; i < localplayer->hotbar.size() ; i ++){
         bool exists=true;
         if(!localplayer->hotbar[i]){
@@ -97,6 +98,10 @@ void CGame::writesavefile(){
         }
         os.write(reinterpret_cast<char*>(&exists),sizeof(bool));
         localplayer->hotbar[i]->savetofile(os);
+    }
+
+    for(int i = 0 ; i<world->entities.size();i++){
+        world->entities[i]->savetofile(os);
     }
 
     os.close();

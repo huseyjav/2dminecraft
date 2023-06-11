@@ -61,3 +61,8 @@ struct eatableread{
     unsigned int eatcooldown;
     int healthboost;
 };
+
+struct pickableread{
+    int stackcount;
+    entityread entity;
+};

@@ -9,3 +9,5 @@ CItem* makeitem(itemID id);
 
 
 CItem* extractfromfile(ifstream& is);
+
+CEntity* extractentityfromfile(ifstream& is,CWorld* world);

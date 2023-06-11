@@ -120,13 +120,10 @@ void CPlayer::setactiveitem(int slot){
 }
 
 int CPlayer::stackitem(itemID id,int count){
-    // cout << count << endl;
-    // cout << hotbar[2]->currentcount << endl;
     for(auto i : hotbar){
         if(!i) continue;
         if(i->id!=id) continue;
         int howmanywecanadd = i->maxcount-i->currentcount;
-        cout << howmanywecanadd << endl;
         if(howmanywecanadd>=count){
             i->currentcount+=count;
             return count;
