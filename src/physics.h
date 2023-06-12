@@ -31,7 +31,11 @@ public:
     CPhyiscs(physicsread physics, CWorld* world);
     virtual ~CPhyiscs() = default;
     virtual void render(CCameraRenderer * renderer) override;
-
+    /**
+     * @brief returns struct used for saving game state and load for constructor
+     * 
+     * @return physicsread 
+     */
     physicsread getphysicsread();
 
     void setonGround();
