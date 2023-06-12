@@ -12,6 +12,16 @@ public:
     CPlaceable(placeableread read);
     virtual ~CPlaceable()=default;
     void use(CWorld* world,vector2 clickpos) override;
+    /**
+     * @brief returns struct used for saving game state and load for constructor
+     * 
+     * @return placeableread 
+     */
     placeableread getplaceableread();
+    /**
+     * @brief saves information needed to reconstruct class from file
+     * 
+     * @param os 
+     */
     virtual void savetofile(ostream & os) override;
 };

@@ -26,7 +26,11 @@ public:
     virtual void render(CCameraRenderer* camrenderer);
     CPlayer(int x, int y, int w, int h, int velocityX ,CWorld* world);
     CPlayer(playerread& oldstate,CWorld* world);
-
+    /**
+     * @brief returns struct used for saving game state and load for constructor
+     * 
+     * @return playerread 
+     */
     playerread getplayerread();
 
     void useactiveitem(vector2 worldpos);

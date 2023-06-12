@@ -55,21 +55,6 @@ void CPhyiscs::render(CCameraRenderer* renderer){
 void CPhyiscs::setonGround(){
     onGround=true;
     if(isValidcoordinate(x,y-1)) onGround=false;
-    // onGround=false;
-    // if(y%100!=0){
-    //     onGround = false;
-    //     return;
-    // }
-    // int heightidx = y/100 - 1;
-    // for(int i = (x+1)/100;i<=(x+w-1)/100;i++){
-    //     //cout << i << endl;
-    //     if(heightidx>=world->tiles.size()) return;
-    //     if(i>=world->tiles.at(heightidx).size()) return;   
-    //     if(world->tiles.at(heightidx).at(i).isCollidable()) {
-    //         onGround = true;
-    //         return;    
-    //     }
-    // }
     
 
 }

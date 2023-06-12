@@ -31,6 +31,14 @@ public:
     void setplayer(CPlayer* pl);
     void render(CCameraRenderer * renderer) override;
     void update();
+    /**
+     * @brief generates a valid, onGround spawnpoint 
+     * 
+     * @param h 
+     * @param w 
+     * @param checker 
+     * @return vector2 
+     */
     vector2 genSpawnpoint(int h, int w,CPhyiscs* checker);
     //void handleInput(CCameraRenderer * camrenderer);
     /**
@@ -59,6 +67,9 @@ public:
      * @return false 
      */
     bool iswithinlimitsofmap(int x, int y);
+    /**
+     * @param checker can be left as nullptr
+     */
     bool isvalidlocation(int x, int y, int w, int h,CPhyiscs* checker);
     bool placeblock(tileID toplace,vector2 worldpoint);
     

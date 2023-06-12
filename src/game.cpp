@@ -31,7 +31,7 @@ CGame::CGame()
     // spawn player in middle of world
     // set camera to render
     world = new CWorld(100, 20);
-    localplayer = new CPlayer(603, 600, 70, 195,10, world);
+    localplayer = new CPlayer(9000, 600, 70, 195,10, world);
     hud = new CHud(localplayer);
     SDL_CreateWindowAndRenderer(1500, 1000, 0, &window, &renderer);
     camrednerer = new CCameraRenderer(window, renderer, world);

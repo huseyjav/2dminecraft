@@ -1,9 +1,0 @@
-abstract class Renderable that has render function, every object that can be rendered will be derived from this class
-
-theres base class CAlive, we can derive classes such as animal, hostileAI etc from this class
-
-theres base class CEntity for game entities that can move, have velocity etc.
-
-at CEntity update function will be implemented for basic things such as dropped items but for alive players it might be different
-thats why it is virtual and in player class it is overwritten to take fall damage into account and as project develops i will probably have more reasons to overwrite
-

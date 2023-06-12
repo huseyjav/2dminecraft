@@ -77,7 +77,7 @@ $(BUILD_DIR):
 run: $(EXEC)
 	./$(EXEC)
 
-compile: $(OBJS)
+compile: all
 
 clean:
 	rm -rf $(BUILD_DIR)

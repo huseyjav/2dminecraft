@@ -1,4 +1,0 @@
-1. add different kinds of items
-2. on block breaking, make it spawn an entity 
-3. when walking over entity, pick it up if pickable
-4. 

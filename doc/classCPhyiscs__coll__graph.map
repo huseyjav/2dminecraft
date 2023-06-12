@@ -1,8 +1,0 @@
-<map id="CPhyiscs" name="CPhyiscs">
-<area shape="rect" id="node1" title=" " alt="" coords="79,81,159,108"/>
-<area shape="rect" id="node5" href="$classCEntity.html" title=" " alt="" coords="130,157,199,184"/>
-<area shape="rect" id="node2" href="$classCRenderable.html" title=" " alt="" coords="5,5,111,32"/>
-<area shape="rect" id="node3" href="$classCWorld.html" title=" " alt="" coords="59,336,127,363"/>
-<area shape="rect" id="node4" href="$classCPlayer.html" title=" " alt="" coords="130,247,202,273"/>
-<area shape="rect" id="node6" href="$classCAlive.html" title=" " alt="" coords="223,157,287,184"/>
-</map>

@@ -14,6 +14,11 @@ public:
     bool targetwithinproximinity();
     CNpc(int x, int y, int w, int h, int velocityX,CWorld* world, CEntity* target);
     CNpc(int x, int y, int w, int h, int velocityX,CWorld* world, CEntity* target,entityID id);
+    /**
+     * @brief get item drop from dead npc
+     * 
+     * @return entityID 
+     */
     virtual entityID getitemdrop();
     virtual void render(CCameraRenderer * renderer) override;
     virtual void update() override;

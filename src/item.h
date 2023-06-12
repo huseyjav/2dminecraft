@@ -20,12 +20,21 @@ public:
     CItem(itemID id, CEntity* owner,int stackcount1);
     CItem(itemread read);
     virtual void use(CWorld* world, vector2 clickpos)=0;
+    /**
+     * @brief returns struct used for saving game state and load for constructor
+     * 
+     * @return itemread 
+     */
     itemread getitemread();
+    /**
+     * @brief saves information needed to reconstruct class from file
+     * 
+     * @param os 
+     */
     virtual void savetofile(ostream & os);
     //virtual CEntity* spawnentity()=0;
     virtual ~CItem() = default;
 };
-
 
 
 

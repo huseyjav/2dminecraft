@@ -1,9 +1,0 @@
-<map id="CHud" name="CHud">
-<area shape="rect" id="node1" title=" " alt="" coords="27,336,84,363"/>
-<area shape="rect" id="node2" href="$classCRenderable.html" title=" " alt="" coords="5,5,111,32"/>
-<area shape="rect" id="node5" href="$classCPhyiscs.html" title=" " alt="" coords="178,81,258,108"/>
-<area shape="rect" id="node6" href="$classCWorld.html" title=" " alt="" coords="176,336,244,363"/>
-<area shape="rect" id="node3" href="$classCPlayer.html" title=" " alt="" coords="135,247,207,273"/>
-<area shape="rect" id="node4" href="$classCEntity.html" title=" " alt="" coords="183,157,253,184"/>
-<area shape="rect" id="node7" href="$classCAlive.html" title=" " alt="" coords="95,157,159,184"/>
-</map>

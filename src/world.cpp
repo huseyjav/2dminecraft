@@ -197,14 +197,17 @@ bool CWorld::placeblock(tileID toplace,vector2 worldpoint){
 
 bool CWorld::iswithinlimitsofmap(int x, int y){
     if(x<0 || y<0) return false;
-    if((size_t)y > 100 * tiles.size()) return false;
-    if((size_t)x > 100 * tiles.at(0).size()) return false;
+    if((size_t)y/100 >= tiles.size()) return false;
+    if((size_t)x/100 >= tiles.at(0).size()) return false;
+    // if((size_t)y > 100 * tiles.size()) return false;
+    // if((size_t)x > 100 * tiles.at(0).size()) return false;
     return true;
 }
 
 
 bool CWorld::isvalidlocation(int x, int y, int w, int h, CPhyiscs* checker){
     if(!iswithinlimitsofmap(x,y)) return false;
+    if(!iswithinlimitsofmap(x+w,y+h)) return false;
     for(size_t i = (size_t)((y)/100) ; i <=(size_t)((y+h-1)/100) ; i ++) {
         for(size_t j = (size_t)((x)/100 ); j<=(size_t)((x+w-1)/100);j++){
             if(tiles.at(i).at(j).isCollidable()){
@@ -251,12 +254,12 @@ bool CWorld::isvalidlocation(int x, int y, int w, int h, CPhyiscs* checker){
 vector2 CWorld::genSpawnpoint(int h, int w,CPhyiscs* checker){
     // int randomy = rand()%(100*tiles.size()-h);
     // int randomx = 100*tiles.at(0).size() - w;
-
+    
     int randomx = rand()%(100*tiles.at(0).size()-w);
-    int randomy = 100*tiles.size() - h;
+    int randomy = 100*(tiles.size()-1) - h;
     //cout << randomy << " " << randomx << endl;
     while(!isvalidlocation(randomx,randomy,w,h,checker)){
-        randomx = rand()%(100*tiles.size()-w);
+        randomx = rand()%(100*tiles.at(0).size()-w);
     }
 
     while(isvalidlocation(randomx,randomy-1,w,h,checker)){

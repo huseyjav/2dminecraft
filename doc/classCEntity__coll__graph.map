@@ -1,8 +1,0 @@
-<map id="CEntity" name="CEntity">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,75,32"/>
-<area shape="rect" id="node5" href="$classCPlayer.html" title=" " alt="" coords="77,81,149,108"/>
-<area shape="rect" id="node2" href="$classCPhyiscs.html" title=" " alt="" coords="93,260,173,287"/>
-<area shape="rect" id="node3" href="$classCRenderable.html" title=" " alt="" coords="174,81,279,108"/>
-<area shape="rect" id="node4" href="$classCWorld.html" title=" " alt="" coords="99,171,167,197"/>
-<area shape="rect" id="node6" href="$classCAlive.html" title=" " alt="" coords="99,5,163,32"/>
-</map>

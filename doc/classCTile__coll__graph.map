@@ -1,9 +1,0 @@
-<map id="CTile" name="CTile">
-<area shape="rect" id="node1" title=" " alt="" coords="5,171,60,197"/>
-<area shape="rect" id="node2" href="$classCRenderable.html" title=" " alt="" coords="65,5,171,32"/>
-<area shape="rect" id="node3" href="$classCWorld.html" title=" " alt="" coords="84,81,152,108"/>
-<area shape="rect" id="node6" href="$classCPhyiscs.html" title=" " alt="" coords="155,171,235,197"/>
-<area shape="rect" id="node4" href="$classCPlayer.html" title=" " alt="" coords="157,336,229,363"/>
-<area shape="rect" id="node5" href="$classCEntity.html" title=" " alt="" coords="158,260,227,287"/>
-<area shape="rect" id="node7" href="$classCAlive.html" title=" " alt="" coords="251,260,315,287"/>
-</map>

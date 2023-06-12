@@ -3,7 +3,10 @@
 #include "SDL2/SDL_image.h"
 
 class CCameraRenderer;
-
+/**
+ * @brief class used to cache assets
+ * 
+ */
 class CAssets{
 public:
     SDL_Texture* grassblock;
