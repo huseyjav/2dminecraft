@@ -11,12 +11,15 @@ entityID getentityIDtile(tileID tile){
     default:
         break;
     }
+    return entityID::dropped_grassblock_id;
 }
 
 tileID gettileID(itemID item){
     switch(item){
         case (itemID::grassblock_id):
             return tileID::grass_id;
+        default:
+            return tileID::void_id;
     }
 }
 
@@ -31,6 +34,8 @@ itemID getitemID(entityID entity){
             return itemID::meat_id;
         case(entityID::dropped_grassblock_id):
             return itemID::grassblock_id;
+        default:
+            return itemID::emptyhand_id;
     }
 }
 

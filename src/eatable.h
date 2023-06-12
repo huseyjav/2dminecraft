@@ -12,4 +12,5 @@ public:
     eatableread geteatableread();
     virtual void savetofile(ostream & os) override;
     void use(CWorld* world,vector2 clickpos) override;
+    virtual ~CEatable()=default;
 };

@@ -22,5 +22,7 @@ public:
 
     virtual void update();
 
+    virtual ~CEntity() = default;
+
 };
 

@@ -14,6 +14,7 @@ public:
     virtual void savetofile(ostream & os) override;
     virtual void update() override;
     virtual void render(CCameraRenderer * renderer) override;
+    virtual ~CPickable()=default;
 };
 
 

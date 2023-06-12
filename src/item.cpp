@@ -38,5 +38,7 @@ SDL_Texture* getTexture(itemID id,CAssets* assets){
 }
 
 void CItem::savetofile(ostream & os){
-    
+    os.write(reinterpret_cast<char*>(&id),sizeof(itemID));
+    itemread towrite = getitemread();
+    os.write(reinterpret_cast<char*>(&towrite),sizeof(itemread));
 }

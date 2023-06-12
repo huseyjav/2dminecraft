@@ -23,7 +23,7 @@ public:
     CPlayer* localplayer = nullptr;
     CHud* hud=nullptr;
     CAssets* assets=nullptr;
-    const char* filename=nullptr;
+    const char* filename = "";
     CGame();
     CGame(const char* savefile);
     void writesavefile();

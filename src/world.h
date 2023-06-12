@@ -25,17 +25,14 @@ public:
     CPlayer* player;
     vector<CNpc*> worldnpcs;
     vector<CEntity*> entities;
-    int lastminedx=-1, lastminedy=-1;
-    unsigned int lastminetick=0;
     CWorld(int w, int h);
     CWorld(ifstream& is);
     virtual ~CWorld();
     void setplayer(CPlayer* pl);
     void render(CCameraRenderer * renderer) override;
     void update();
-    vector2 genSpawnpoint();
-    void handleInput(CCameraRenderer * camrenderer);
-    void resetTilehealth();
+    vector2 genSpawnpoint(int h, int w,CPhyiscs* checker);
+    //void handleInput(CCameraRenderer * camrenderer);
     /**
      * @brief handles a melee attack
      * 
@@ -62,12 +59,9 @@ public:
      * @return false 
      */
     bool iswithinlimitsofmap(int x, int y);
+    bool isvalidlocation(int x, int y, int w, int h,CPhyiscs* checker);
     bool placeblock(tileID toplace,vector2 worldpoint);
     
-    bool lastframekleftclick = false;
-    int tickoflastclick = 0;
-    int lastclickedtilex=0;
-    int lastclickedtiley=0;
 
 
 

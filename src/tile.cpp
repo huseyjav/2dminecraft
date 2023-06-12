@@ -51,5 +51,7 @@ void CTile::setblocktype(tileID type){
             maxhealth=100;
             health=100;
             break;
+        default:
+            return;
     }
 }

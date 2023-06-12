@@ -12,5 +12,5 @@ public:
     void renderhealth(CCameraRenderer* camrenderer);
     void renderhotbar(CCameraRenderer* camrenderer);
 
-    virtual ~CHud();
+    virtual ~CHud()=default;
 };

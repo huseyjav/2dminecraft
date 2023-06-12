@@ -34,3 +34,7 @@ void CZombie::update(){
 
     CEntity::update();
 } 
+
+CZombie::~CZombie(){
+    delete sword;
+}

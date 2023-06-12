@@ -29,6 +29,7 @@ public:
     int howmanypixels = 0 ; // how far object fell from sky (used for fall damage)
     CPhyiscs(int x, int y, int w, int h,int velocityX,CWorld* world);
     CPhyiscs(physicsread physics, CWorld* world);
+    virtual ~CPhyiscs() = default;
     virtual void render(CCameraRenderer * renderer) override;
 
     physicsread getphysicsread();

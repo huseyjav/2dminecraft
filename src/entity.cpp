@@ -33,5 +33,7 @@ void CEntity::update(){
 
 
 void CEntity::savetofile(ostream & os){
-    
+    os.write(reinterpret_cast<char*>(&id),sizeof(itemID));
+    entityread towrite = getentityread();
+    os.write(reinterpret_cast<char*>(&towrite),sizeof(entityread));
 }

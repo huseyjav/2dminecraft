@@ -43,8 +43,7 @@ CGame::CGame()
     //cout << "asd " << assets;
 }
 
-CGame::CGame(const char* savefile){
-    filename = savefile;
+CGame::CGame(const char* savefile) : filename(savefile){
     auto is = ifstream(filename,ios_base::binary);
     if(!is){
         world = new CWorld(100,20);
@@ -55,7 +54,7 @@ CGame::CGame(const char* savefile){
         playerread playerdata;
         is.read(reinterpret_cast<char*>(&playerdata),sizeof(playerread));
         localplayer = new CPlayer(playerdata,world);
-        for(int i = 0 ;  i < localplayer->hotbar.size();i++){
+        for(size_t i = 0 ;  i < localplayer->hotbar.size();i++){
             bool exists;
             is.read(reinterpret_cast<char*>(&exists),sizeof(bool));
             if(!exists) continue;
@@ -89,7 +88,7 @@ void CGame::writesavefile(){
     SaveTilesToFile(os,world->tiles);
     playerread a = localplayer->getplayerread();
     os.write(reinterpret_cast<char*>(&a),sizeof(a));
-    for(int i = 0 ; i < localplayer->hotbar.size() ; i ++){
+    for(size_t i = 0 ; i < localplayer->hotbar.size() ; i ++){
         bool exists=true;
         if(!localplayer->hotbar[i]){
             exists=false;
@@ -100,7 +99,7 @@ void CGame::writesavefile(){
         localplayer->hotbar[i]->savetofile(os);
     }
 
-    for(int i = 0 ; i<world->entities.size();i++){
+    for(size_t i = 0 ; i<world->entities.size();i++){
         world->entities[i]->savetofile(os);
     }
 
@@ -191,7 +190,7 @@ void CGame::handleinputs()
     if(state & SDL_BUTTON(1)){
         localplayer->useactiveitem(camrednerer->screentoworld(vector2{mouseX,mouseY}));
     }
-    world->handleInput( camrednerer);
+   // world->handleInput( camrednerer);
 }
 
 CGame::~CGame()

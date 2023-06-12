@@ -34,7 +34,7 @@ void CHud::renderhotbar(CCameraRenderer* camrenderer){
         rect.y = int(screendimy*0.9);
         rect.x = int((screendimx-localplayer->hotbar.size()*75)/2+i*75);
         SDL_SetRenderDrawColor(camrenderer->renderer, 255, 255, 255, 0);
-        if(localplayer->activeitem==i){
+        if((size_t)localplayer->activeitem==i){
             SDL_SetRenderDrawColor(camrenderer->renderer, 255, 0, 0, 0);
         }
         SDL_RenderDrawRect(camrenderer->renderer,&rect);
@@ -48,8 +48,4 @@ void CHud::renderhotbar(CCameraRenderer* camrenderer){
         SDL_RenderCopy(camrenderer->renderer,localplayer->hotbar[i] ? getTexture(localplayer->hotbar[i]->id,camrenderer->assets) : nullptr,nullptr,&rect);
 
     }
-}
-
-CHud::~CHud(){
-    
 }

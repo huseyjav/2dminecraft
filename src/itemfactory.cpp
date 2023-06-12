@@ -45,7 +45,6 @@ CItem* extractfromfile(ifstream & is){
         return new CEatable(extracted);
 
     }
-    cout << "aaaaaaaaaa" << endl;
     return nullptr;
 }
 

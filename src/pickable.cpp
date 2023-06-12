@@ -73,6 +73,8 @@ SDL_Texture* getentTexture(CEntity* ent,CAssets* assets){
             return assets->meat;
         case(entityID::dropped_grassblock_id):
             return assets->grassblock;
+        default:
+            return nullptr;
     }
 }
 

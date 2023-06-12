@@ -13,4 +13,5 @@ public:
     SDL_Texture* sword;
     SDL_Texture* meat;
     CAssets(CCameraRenderer* renderer);
+    ~CAssets();
 };

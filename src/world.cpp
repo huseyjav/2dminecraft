@@ -4,13 +4,15 @@
 #include "game.h"
 #include "pickable.h"
 #include "hostilenpc.h"
-#include "fstream"
-std::vector<std::vector<CTile>> LoadTilesFromFile(ifstream& is) {
+#include <fstream>
+#include <cstdlib>
+#include <ctime>
+vector<vector<CTile>> LoadTilesFromFile(ifstream& is) {
     int numRows, numCols;
     is.read(reinterpret_cast<char*>(&numRows), sizeof(int));
     is.read(reinterpret_cast<char*>(&numCols), sizeof(int));
 
-    std::vector<std::vector<CTile>> loadedTiles(numRows, std::vector<CTile>(numCols));
+    vector<vector<CTile>> loadedTiles(numRows, vector<CTile>(numCols));
 
     for (auto& row : loadedTiles) {
         for (auto& tile : row) {
@@ -40,6 +42,11 @@ CWorld::CWorld(int w, int h){
 
 CWorld::CWorld(ifstream& is){
     tiles = LoadTilesFromFile(is);
+    for(auto i : tiles){
+        for(auto j : i){
+            j.world=this;
+        }
+    }
 }
 
 CWorld::~CWorld(){
@@ -79,8 +86,8 @@ void CWorld::update(){
             entityID id = (*i)->getitemdrop();
             int tempx=(*i)->x;
             int tempy=(*i)->y;
-            int temph=(*i)->h;
-            int tempw=(*i)->w;
+            //int temph=(*i)->h;
+            //int tempw=(*i)->w;
             delete *i;
             worldnpcs.erase(i);
             entities.push_back ( new CPickable(id,tempx,tempy,50,50,10,this,1));
@@ -91,13 +98,11 @@ void CWorld::update(){
         }
         i++;
     }
-    if(worldnpcs.size()==0){
-        worldnpcs.push_back(new CZombie(2000,800,90,195,7,this,player));
+    while(worldnpcs.size()<10){
+        vector2 vec = genSpawnpoint(195,90,nullptr);
+        worldnpcs.push_back(new CZombie(vec.x,vec.y,90,195,7,this,player));
         //worldnpcs.push_back(new CNpc(0,800,90,195,7,this,player));
     }
-    // for(auto i : entities){
-    //     i->update();
-    // }
 
     for(auto i = entities.begin() ; i!=entities.end();){
         if((*i)->shouldberemoved){
@@ -115,40 +120,12 @@ void CWorld::update(){
     //resetTilehealth();
 }
 
-void CWorld::handleInput(CCameraRenderer * camrenderer){
-    int mouseX;
-    int mouseY;
-    Uint32 state = SDL_GetMouseState(&mouseX, &mouseY);
-    if(state & SDL_BUTTON(SDL_BUTTON_LEFT)){
-        
-        vector2 worldpos = camrenderer->screentoworld(vector2{mouseX,mouseY});
-        //worldpos.y = 1000-worldpos.y;
-        //cout << worldpos.x << " " << worldpos.y << endl;
-        int vx = worldpos.x/100;
-        int vy = worldpos.y/100;
-
-        if(!lastframekleftclick || vx!=lastclickedtilex || vy!=lastclickedtiley){
-            //if(tiles.at(vy).at(vx).type==VOID) tiles.at(vy).at(vx).type=GRASS;
-            //else tiles.at(vy).at(vx).type=VOID;
-        }
-        lastclickedtilex=vx;
-        lastclickedtiley=vy;
-        lastframekleftclick = true;
-    }
-    else{
-        lastframekleftclick = false;
-    }
-}
-
 void CWorld::handleAttack(CItem* item, CEntity* owner, vector2 worldpoint){
     //extra calculation is to set eyepos 
     vector<vector2> a = bresenhamalgo(vector2{owner->x+owner->w/2,owner->y+(int)((double)owner->h*0.9)},worldpoint);
     for(auto i : a){
         if(!iswithinlimitsofmap(i.x,i.y)) continue;
         if(tiles.at(i.y/100).at(i.x/100).isCollidable()){
-            lastminedx=i.x/100;
-            lastminedy=i.y/100;
-            lastminetick = CGame::tick;
             if(owner == player) tiles.at(i.y/100).at(i.x/100).health-=((CMelee*)item)->damage;
             if(tiles.at(i.y/100).at(i.x/100).health<=0){
                 tileID temp = tiles.at(i.y/100).at(i.x/100).type;
@@ -175,12 +152,6 @@ void CWorld::handleAttack(CItem* item, CEntity* owner, vector2 worldpoint){
     }
 }
 
-
-void CWorld::resetTilehealth(){
-    if(CGame::tick!=lastminetick && lastminedx>=0 && lastminedy>=0){
-        //tiles.at(lastminedy).at(lastminedx).health = tiles.at(lastminedy).at(lastminedx).maxhealth;
-    }
-}
 
 bool CWorld::isempty(int x, int y){
     SDL_Rect a;
@@ -226,7 +197,70 @@ bool CWorld::placeblock(tileID toplace,vector2 worldpoint){
 
 bool CWorld::iswithinlimitsofmap(int x, int y){
     if(x<0 || y<0) return false;
-    if(y > 100 * tiles.size()) return false;
-    if(x > 100 * tiles.at(0).size()) return false;
+    if((size_t)y > 100 * tiles.size()) return false;
+    if((size_t)x > 100 * tiles.at(0).size()) return false;
     return true;
+}
+
+
+bool CWorld::isvalidlocation(int x, int y, int w, int h, CPhyiscs* checker){
+    if(!iswithinlimitsofmap(x,y)) return false;
+    for(size_t i = (size_t)((y)/100) ; i <=(size_t)((y+h-1)/100) ; i ++) {
+        for(size_t j = (size_t)((x)/100 ); j<=(size_t)((x+w-1)/100);j++){
+            if(tiles.at(i).at(j).isCollidable()){
+                return false;
+            }
+            
+        }
+    }
+
+    for(size_t i = 0 ; i<worldnpcs.size();i++){
+        if(checker && worldnpcs[i]==checker) continue;
+        SDL_Rect a;
+        SDL_Rect b;
+        a.h = h;
+        a.w = w;
+        a.x = x;
+        a.y = y;
+
+        b.h = worldnpcs[i]->h;
+        b.w = worldnpcs[i]->w;
+        b.x = worldnpcs[i]->x;
+        b.y = worldnpcs[i]->y;
+
+        if(SDL_HasIntersection(&a,&b)) return false;
+    }
+    if(checker && checker!=player){
+        SDL_Rect a;
+        SDL_Rect b;
+        a.h = h;
+        a.w = w;
+        a.x = x;
+        a.y = y;
+
+        b.h = player->h;
+        b.w = player->w;
+        b.x = player->x;
+        b.y = player->y;
+
+        if(SDL_HasIntersection(&a,&b)) return false;
+    }
+    return true;
+}
+
+vector2 CWorld::genSpawnpoint(int h, int w,CPhyiscs* checker){
+    // int randomy = rand()%(100*tiles.size()-h);
+    // int randomx = 100*tiles.at(0).size() - w;
+
+    int randomx = rand()%(100*tiles.at(0).size()-w);
+    int randomy = 100*tiles.size() - h;
+    //cout << randomy << " " << randomx << endl;
+    while(!isvalidlocation(randomx,randomy,w,h,checker)){
+        randomx = rand()%(100*tiles.size()-w);
+    }
+
+    while(isvalidlocation(randomx,randomy-1,w,h,checker)){
+        randomy--;
+    }
+    return vector2{randomx,randomy};
 }

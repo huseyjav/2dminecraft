@@ -76,12 +76,14 @@ void CPhyiscs::setonGround(){
 
 
 bool CPhyiscs::isValidcoordinate(int newx, int newy){
+    return world->isvalidlocation(newx,newy,w,h,this);
+    
     if(newx<0 || newy<0) return false;
     //cout << y << " "<< x << endl;
     if(uint(newy+h-1)/100 >= world->tiles.size()) return false;
     if(uint(newx+w-1)/100 >= world->tiles.at(0).size()) return false;
     //cout << (newy+h-1)/100  << endl;
-    for(int i = (newy)/100 ; i <=(newy+h-1)/100 ; i ++) { // edge case : y is 0
+    for(int i = (newy)/100 ; i <=(newy+h-1)/100 ; i ++) {
         for(int j = (newx)/100 ; j<=(newx+w-1)/100;j++){
             if(world->tiles.at(i).at(j).isCollidable()){
                 return false;
@@ -89,8 +91,6 @@ bool CPhyiscs::isValidcoordinate(int newx, int newy){
             
         }
     }
-    //if(print ) return false;
-    //if(print) cout << "asdas" << endl;
     return true;
 }
 

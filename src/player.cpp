@@ -52,6 +52,12 @@ void CPlayer::update(){
 
 
 void CPlayer::respawn(){
+    if(!isValidcoordinate(respawnx,respawny)){
+        cout << "generating new location" << endl;
+        vector2 randomspot = world->genSpawnpoint(h,w,this);
+        respawnx = randomspot.x;
+        respawny = randomspot.y;
+    }
     x=respawnx;
     y=respawny;
     health=100;
@@ -114,7 +120,7 @@ CPlayer::~CPlayer(){
 
 
 void CPlayer::setactiveitem(int slot){
-    if(slot>hotbar.size() || slot<1) return;
+    if(slot>(int)hotbar.size() || slot<1) return;
     if(!hotbar[slot-1]) return;
     activeitem=slot-1;
 }
@@ -134,7 +140,7 @@ int CPlayer::stackitem(itemID id,int count){
             return howmanywecanadd;
         }
     }
-    for(int i = 0 ; i<hotbar.size();i++){
+    for(size_t i = 0 ; i<hotbar.size();i++){
         if(hotbar[i]) continue;
         hotbar[i]=makeitem(id);
         hotbar[i]->owner=this;
