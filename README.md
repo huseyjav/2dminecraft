@@ -13,5 +13,6 @@ sudo apt install libsdl2-image-dev
 ```
 
 # Building
-'make' will compile the game(compiling has only been tested on debian based linux distributions). 
-'make doxygen' will generate doxygen documentation of the project.
+`make` will compile the game(compiling has only been tested on debian based linux distributions). 
+
+`make doxygen` will generate doxygen documentation of the project.
